@@ -1,0 +1,95 @@
+"use client";
+import { Product } from '@/types/Product';
+import Image from "next/image";
+import { useState } from 'react';
+
+interface PropsInterface {
+    products: Product[];
+}
+
+const Products = (props: PropsInterface) => {
+    const { products } = props;
+
+    // Get all unique categories
+    const categories = Array.from(new Set(products.map((product) => product.category)));
+
+    // State for selected categories
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+    // State for selected products (for selection, not filtering)
+    const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+
+    // Filter products by selected categories
+    const filteredProducts =
+        selectedCategories.length === 0
+            ? products
+            : products.filter((product) => selectedCategories.includes(product.category));
+
+    // Handle category filter toggle
+    const handleCategoryToggle = (category: string) => {
+        setSelectedCategories((prev) =>
+            prev.includes(category)
+                ? prev.filter((c) => c !== category)
+                : [...prev, category]
+        );
+    };
+
+    // Clear all filters
+    const handleClearFilters = () => setSelectedCategories([]);
+
+    return (
+        <div className="container mx-auto">
+            {/* Filter Component */}
+            <div className="filters px-4 mb-4">
+                <div className="flex items-center justify-between mb-2">
+                    <h2 className="text-2xl font-bold">Alquiler Equipo</h2>
+                </div>
+                <div className="flex flex-wrap gap-1 mb-2">
+                    {categories.map((category) => (
+                        <button
+                            key={category}
+                            className={`text-xs px-3 py-1 rounded-full border transition ${selectedCategories.includes(category)
+                                ? 'bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300'
+                                : 'text-gray-800 transparent border-grey-300 hover:bg-gray-100'
+                                }`}
+                            onClick={() => handleCategoryToggle(category)}
+                        >
+                            {category}
+                        </button>
+                    ))}
+                    {selectedCategories.length > 0 ?
+                        <button
+                            className='text-xs px-3 py-1 rounded-full border bg-gray-700 text-white border-gray-900 hover:bg-black'
+                            onClick={handleClearFilters}
+                            disabled={selectedCategories.length === 0}
+                        >
+                            Limpiar filtros
+                        </button>
+                        : null}
+                </div>
+            </div>
+            {/* Products List */}
+            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 gap-y-12">
+                {filteredProducts.map((product) => (
+                    <div key={product._id} className={`group col ${product._id}`}>
+                        <div className="image relative w-full h-0 pb-[100%] overflow-hidden">
+                            <Image src={product.imageUrl} alt={product.imageAlt || product.title} width={640} height={640} className="group-hover:scale-110 transition duration-200 ease-out" />
+                            <div className="description">
+                                <div className="absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full bg-black/50 flex flex-col items-center justify-between opacity-0 group-hover:opacity-100 transition duration-200 ease-out">
+                                    <span className="text-white text-xs mb-4">{product.description}</span>
+                                    <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-red-300 font-bold text-lg rounded-full text-sm px-4 py-2.5 text-center me-2">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="description mt-3 leading-none text-grey-600">
+                            <h5 className="text-xs font-bold">{product.title}</h5>
+                            <p className="text-xs">${product.price}.00</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default Products;
