@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold mb-6">Bienvenido a Estudios Central</h1>
         <p className="text-lg mb-4">Explora nuestros servicios y productos.</p>
         {/* Uncomment the line below to display products */}

@@ -38,9 +38,9 @@ const Products = (props: PropsInterface) => {
     const handleClearFilters = () => setSelectedCategories([]);
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
             {/* Filter Component */}
-            <div className="filters px-4 mb-4">
+            <div className="filters mb-4">
                 <div className="flex items-center justify-between mb-2">
                     <h2 className="text-2xl font-bold">Alquiler Equipo</h2>
                 </div>
@@ -69,7 +69,7 @@ const Products = (props: PropsInterface) => {
                 </div>
             </div>
             {/* Products List */}
-            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 gap-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 gap-y-12">
                 {filteredProducts.map((product) => (
                     <div key={product._id} className={`group col ${product._id}`}>
                         <div className="image relative w-full h-0 pb-[100%] overflow-hidden">
