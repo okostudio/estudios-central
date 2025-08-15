@@ -13,9 +13,10 @@ export default async function About() {
 
     return (
         <>
+            <section className="pt-24">
 
-            <Products products={products} />
-
+                <Products products={products} />
+            </section>
         </>
     );
 }

@@ -15,12 +15,20 @@ export default async function Home() {
 
   return (
     <>
+      <section className="relative w-full h-[80vh] bg-gray-950 mb-20">
+        <video muted autoPlay loop playsInline disablePictureInPicture className="absolute w-full h-full object-cover">
+          <source src="/placeholder-video-hero.mp4" type="video/mp4" />
+          {/* Your browser does not support the video tag. */}
+        </video>
+
+        <div className="absolute top-0 h-full w-full md:col-span-12 py-24 md:py-48 px-12 text-center">
+          <h1 className="text-gray-800 text-center font-bold text-3xl md:text-5xl">Estudios Central</h1>
+          <p className="text-gray-800 text-center text-md md:text-xl">Somos lorem ipsum dolor sic plam bam. Quintos quo pro ipomos lorem ipsum dolor sic plam shambam.</p>
+        </div>
+      </section>
       <div className="container mx-auto px-4">
         <div className="hero grid grid-cols-1 md:grid-cols-12 gap-2 mb-8">
-          <div className="relative md:col-span-12 py-24 md:py-48 px-12 bg-gray-100 text-center">
-            <h1 className="text-gray-800 text-center font-bold text-3xl md:text-5xl">Estudios Central</h1>
-            <p className="text-gray-800 text-center text-md md:text-xl">Somos lorem ipsum dolor sic plam bam. Quintos quo pro ipomos lorem ipsum dolor sic plam shambam.</p>
-          </div>
+
           <Link href={"/estudios"} className="relative group md:col-span-8">
             <img
               src="/_studio-01.jpg"

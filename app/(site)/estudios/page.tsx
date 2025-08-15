@@ -1,6 +1,5 @@
 
 import { fetchStudiuoImages } from "@/sanity/sanity-utils";
-import Products from "../components/products";
 import { Image } from "next-sanity/image";
 
 export default async function Studios() {

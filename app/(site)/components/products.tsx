@@ -69,7 +69,7 @@ const Products = (props: PropsInterface) => {
                 </div>
             </div>
             {/* Products List */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 gap-y-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 3xl:grid-cols-8 gap-4 gap-y-12">
                 {filteredProducts.map((product) => (
                     <div key={product._id} className={`group col ${product._id} cursor-pointer`}>
                         <div className="image relative w-full h-0 pb-[100%] overflow-hidden">

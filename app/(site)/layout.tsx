@@ -30,10 +30,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased tracking-tight`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased tracking-tight bg-black text-white`}
       >
         <Nav />
-        <div className="page-content pt-24">
+        <div className="page-content">
           {children}
         </div>
       </body>
