@@ -1,22 +1,31 @@
 "use client";
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { fetchNav } from '@/sanity/sanity-utils';
 
-
+type MenuItem = {
+    title: string;
+    slug: string;
+};
 
 type NavLinksProps = {
     isMobile: boolean;
     closeMenuFunction: (open: boolean) => void;
+    menu: MenuItem[];
 };
 
-const NavLinks: React.FC<NavLinksProps> = ({ isMobile, closeMenuFunction }) => {
+const NavLinks: React.FC<NavLinksProps> = ({ isMobile, closeMenuFunction, menu }) => {
     return (
-        <div className={isMobile ? "md:hidden  bg-black w-full h-screen absolute left-0 top-full z-10" : "hidden md:block"}>
+        <div className={isMobile ? "md:hidden bg-black w-full h-screen absolute left-0 top-full z-10" : "hidden md:block"}>
             <ul className={`flex ${isMobile ? "flex-col items-center justify-center h-full py-4 space-y-4 text-2xl" : "space-x-6 "} text-white uppercase font-bold`}>
-                <li><Link href="/equipo" onClick={() => closeMenuFunction(false)}>Equipo</Link></li>
-                <li><Link href="/estudios" onClick={() => closeMenuFunction(false)}>Estudios</Link></li>
-                <li><Link href="/contact" onClick={() => closeMenuFunction(false)}>Contacto</Link></li>
+                {menu.map((item) => (
+                    <li key={item.slug}>
+                        <Link href={`/${item.slug}`} onClick={() => closeMenuFunction(false)}>
+                            {item.title}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     );
@@ -24,6 +33,23 @@ const NavLinks: React.FC<NavLinksProps> = ({ isMobile, closeMenuFunction }) => {
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [menu, setMenu] = useState<MenuItem[]>([]);
+
+    useEffect(() => {
+        fetchNav().then((navs) => {
+            // Assumes navs[0].menu is the menu array
+            if (navs && navs.length > 0 && Array.isArray(navs[0].menu)) {
+                setMenu(
+                    navs[0].menu
+                        .filter((item) => typeof item.title === 'string' && typeof item.slug === 'string')
+                        .map((item) => ({
+                            title: item.title,
+                            slug: item.slug,
+                        }))
+                );
+            }
+        });
+    }, []);
 
     return (
         <nav className="fixed w-full z-100 mb-50 bg-black">
@@ -50,16 +76,13 @@ const Nav = () => {
                     <span className={`block w-4 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
                 </button>
 
-                {/* Menu */}
-                {!menuOpen &&
-                    (<NavLinks isMobile={false} closeMenuFunction={setMenuOpen} />)
-                }
-
+                {/* Desktop Menu */}
+                {!menuOpen && <NavLinks isMobile={false} closeMenuFunction={setMenuOpen} menu={menu} />}
             </div>
 
             {/* Mobile menu */}
             {menuOpen && (
-                <NavLinks isMobile={true} closeMenuFunction={setMenuOpen} />
+                <NavLinks isMobile={true} closeMenuFunction={setMenuOpen} menu={menu} />
             )}
         </nav>
     );

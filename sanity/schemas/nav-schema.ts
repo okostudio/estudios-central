@@ -2,7 +2,7 @@
 const nav = {
     name: 'nav',
     title: 'Nav',
-    type: 'object',
+    type: 'document',
     fields: [
         {
             name: 'title',
@@ -10,16 +10,7 @@ const nav = {
             type: 'string',
         },
         {
-            name: 'slug',
-            title: 'Slug',
-            type: 'slug',
-            options: {
-                source: 'title',
-                maxLength: 96,
-            },
-        },
-        {
-            name: 'logo-blanco',
+            name: 'logo_blanco',
             title: 'Logo Blanco',
             type: 'image',
             options: {
@@ -28,13 +19,24 @@ const nav = {
             description: 'Logo para fondos oscuros',
         },
         {
-            name: 'logo-oscuro',
+            name: 'logo_oscuro',
             title: 'Logo Oscuro',
             type: 'image',
             options: {
                 hotspot: true,
             },
             description: 'Logo para fondos blancos',
+        },
+        {
+            name: "menu",
+            title: "Menu",
+            type: "array",
+            of: [
+                {
+                    type: 'reference',
+                    to: { type: "page" }
+                }
+            ],
         },
     ]
 }

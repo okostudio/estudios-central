@@ -1,3 +1,5 @@
+import { fetchNav } from "@/sanity/sanity-utils";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -18,11 +20,13 @@ export const metadata: Metadata = {
   description: "Estodios y Alquileres fotográficos en Montevideo, Uruguay",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
       <body
@@ -36,3 +40,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+import React from "react";
+
+

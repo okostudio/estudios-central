@@ -1,10 +1,10 @@
 "use client";
-import { Product } from '@/types/Product';
+import { ProductType } from '@/types/Product';
 import Image from "next/image";
 import { useState } from 'react';
 
 interface PropsInterface {
-    products: Product[];
+    products: ProductType[];
 }
 
 const Products = (props: PropsInterface) => {
@@ -17,7 +17,7 @@ const Products = (props: PropsInterface) => {
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
     // State for selected products (for selection, not filtering)
-    const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+    const [selectedProducts, setSelectedProducts] = useState<ProductType[]>([]);
 
     // Filter products by selected categories
     const filteredProducts =
@@ -69,21 +69,31 @@ const Products = (props: PropsInterface) => {
                 </div>
             </div>
             {/* Products List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 gap-y-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 gap-y-12">
                 {filteredProducts.map((product) => (
-                    <div key={product._id} className={`group col ${product._id}`}>
+                    <div key={product._id} className={`group col ${product._id} cursor-pointer`}>
                         <div className="image relative w-full h-0 pb-[100%] overflow-hidden">
                             <Image src={product.imageUrl} alt={product.imageAlt || product.title} width={640} height={640} className="group-hover:scale-110 transition duration-200 ease-out" />
                             <div className="description">
                                 <div className="absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full bg-black/50 flex flex-col items-center justify-between opacity-0 group-hover:opacity-100 transition duration-200 ease-out">
                                     <span className="text-white text-xs mb-4">{product.description}</span>
-                                    <button className="text-white bg-red-600 hover:bg-red-700 focus:ring-red-300 font-bold text-lg rounded-full text-sm px-4 py-2.5 text-center me-2">+</button>
                                 </div>
                             </div>
                         </div>
-                        <div className="description mt-3 leading-none text-grey-600">
-                            <h5 className="text-xs font-bold">{product.title}</h5>
-                            <p className="text-xs">${product.price}.00</p>
+                        {/* description */}
+                        <div className="flex align-start mt-3 leading-none text-grey-600">
+                            <div>
+                                <button className={`
+                                    text-gray-800 transparent border border-black font-bold text-md rounded-full 
+                                    text-sm px-2.5 py-1 text-center mr-2 cursor-pointer
+                                    transition duration-200 ease-out
+                                    group-hover:bg-black group-hover:text-white 
+                                    `}>+</button>
+                            </div>
+                            <div>
+                                <h5 className="text-xs font-bold">{product.title}</h5>
+                                <p className="text-xs">${product.price}.00</p>
+                            </div>
                         </div>
                     </div>
                 ))}

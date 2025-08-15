@@ -2,6 +2,8 @@
 // import { fetchProducts } from "@/sanity/sanity-utils";
 // import Products from "./components/products";
 
+import Link from "next/link"
+
 export default async function Home() {
   // const products = await fetchProducts();
   // console.log(products);
@@ -14,14 +16,29 @@ export default async function Home() {
   return (
     <>
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-6">Bienvenido a Estudios Central</h1>
-        <p className="text-lg mb-4">Explora nuestros servicios y productos.</p>
-        {/* Uncomment the line below to display products */}
-        {/* <Products products={products} /> */}
-        {/* <Products products={products} /> */}
+        <div className="hero grid grid-cols-1 md:grid-cols-12 gap-2 mb-8">
+          <div className="relative md:col-span-12 py-24 md:py-48 px-12 bg-gray-100 text-center">
+            <h1 className="text-gray-800 text-center font-bold text-3xl md:text-5xl">Estudios Central</h1>
+            <p className="text-gray-800 text-center text-md md:text-xl">Somos lorem ipsum dolor sic plam bam. Quintos quo pro ipomos lorem ipsum dolor sic plam shambam.</p>
+          </div>
+          <Link href={"/estudios"} className="relative group md:col-span-8">
+            <img
+              src="/_studio-01.jpg"
+              alt="Hero Image"
+              className="w-auto h-full object-cover"
+            />
+            <div className="absolute w-full top-0"><h2 className="m-8 py-2 px-6 transition-padding duration-300 ease-out group-hover:pl-7 bg-gray-900 opacity-95 text-white mx-auto inline-block text-center font-bold text-3xl lg:text-5xl">Estudios</h2></div>
+          </Link>
+          <Link href={"/equipo"} className="relative group md:col-span-4">
+            <img
+              src="/Digital-Camera-Canon-RF-15-35mm-f2.8-L-IS-USM.jpg"
+              alt="Hero Image"
+              className="w-auto h-full object-cover"
+            />
+            <div className="absolute w-full top-0"><h2 className="m-8 py-2 px-6 transition-padding duration-300 ease-out group-hover:pl-7 bg-gray-900 opacity-95 text-white mx-auto inline-block text-center font-bold text-3xl lg:text-5xl">Equipo</h2></div>
+          </Link>
+        </div>
       </div>
-      {/* Uncomment the line below to display products */}
-      {/* <Products products={products} /> */}
 
     </>
   );
