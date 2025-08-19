@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
+// import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list'
 import schemas from './sanity/schemas';
 
 const config = defineConfig({
@@ -11,7 +12,7 @@ const config = defineConfig({
     basePath: "/admin",
     plugins: [
         structureTool(),
-        visionTool()
+        visionTool(),
     ],
 
     schema: { types: schemas },

@@ -13,7 +13,7 @@ export default async function About() {
 
     return (
         <>
-            <section className="pt-24">
+            <section className="pt-24 bg-white text-black min-h-svh">
 
                 <Products products={products} />
             </section>
