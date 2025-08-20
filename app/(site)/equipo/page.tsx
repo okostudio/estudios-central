@@ -1,6 +1,6 @@
 
 import { fetchProducts } from "@/sanity/sanity-utils";
-import Products from "../components/products";
+import Products from "../../../components/products";
 
 export default async function About() {
     const products = await fetchProducts();
