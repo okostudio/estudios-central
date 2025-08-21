@@ -2,6 +2,9 @@
 module.exports = {
     theme: {
         screens: {
+            '2xs': '360px',
+            // => @media (min-width: 360px) { ... }
+
             'xs': '480px',
             // => @media (min-width: 480px) { ... }
 
@@ -19,6 +22,13 @@ module.exports = {
 
             '2xl': '1536px',
             // => @media (min-width: 1536px) { ... }
+
+            '3xl': '1920px',
+            // => @media (min-width: 1920px) { ... }
         }
-    }
+    },
+    content: [
+        "./app/**/*.{css,js,ts,jsx,tsx,mdx,svg}",
+        "./components/**/*.{cssmjs,ts,jsx,tsx,mdx,svg}",
+    ],
 }

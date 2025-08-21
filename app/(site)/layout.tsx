@@ -1,8 +1,15 @@
+import React from "react";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
-import Nav from "@/components/nav";
+import ThemeProvider from "@/components/common/ThemeContext";
+import SessionProvider from "@/components/common/SessionContext";
+import HoverProvider from "@/components/common/HoverContext";
+import CartProvider from "@/components/common/CartContext";
+
+import SmoothScroll from "@/components/common/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,17 +37,22 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className="antialiased tracking-tight bg-black text-white">
+          <ThemeProvider>
+            <SessionProvider>
+              <HoverProvider>
+                <CartProvider>
 
+                  {children}
 
-          <Nav />
-          {children}
+                </CartProvider>
+              </HoverProvider>
+            </SessionProvider>
+          </ThemeProvider>
 
         </div>
       </body>
     </html>
   );
 }
-
-import React from "react";
 
 

@@ -48,3 +48,27 @@ body {
   transform: translateY(-40px);
   transition-duration: 0ms;
 }
+
+.stroke-round {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+}
+
+
+/* BUTTONS */
+button {
+  @apply rounded-full font-bold text-xs uppercase px-5 py-2 transition-colors duration-300 ease-out cursor-pointer;
+}
+
+button.primary {
+  @apply bg-red-500 text-white border-red-500 border-1 hover:bg-transparent hover:text-red-500 hover:text-black;
+}
+
+button.secondary {
+  @apply bg-transparent text-white border-white border-1 hover:bg-white hover:text-black;
+}
+
+.button-white {
+  @apply bg-transparent text-white border-white border-1 hover:bg-white hover:text-black;
+}

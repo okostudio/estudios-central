@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { TransitionLink } from './TransitionLink';
+import { CartIcon, FacebookIcon, InstaIcon, TiktokIcon } from './icons/icons';
 
 
 
@@ -16,7 +17,9 @@ const NavLinks: React.FC<NavLinksProps> = ({ isMobile, closeMenuFunction }) => {
             <ul className={`flex ${isMobile ? "flex-col items-center justify-center h-full py-4 space-y-4 text-2xl" : "space-x-6 "} text-white uppercase font-bold`}>
                 <li><TransitionLink href={`/estudios`} onClick={() => closeMenuFunction(false)}>Estudios</TransitionLink></li>
                 <li><TransitionLink href={`/equipo`} onClick={() => closeMenuFunction(false)}>Equipo</TransitionLink></li>
-                <li><TransitionLink href={`/`} onClick={() => closeMenuFunction(false)}><svg className='fill-white w-6 h6' viewBox="0 0 60 60"><path d="M53.7,3.7h-10c-.6,0-1.2.3-1.5.7-.4.5-.5,1.1-.4,1.6l1.3,6.9h-11.3s0,0,0,0h-13.3s0,0,0,0H5c-.6,0-1.2.3-1.5.7s-.5,1.1-.4,1.7l5,25c.2.9,1,1.6,2,1.6h40c.6,0,1.2-.3,1.5-.7.4-.5.5-1.1.4-1.6l-5.9-31.9h7.6c1.1,0,2-.9,2-2s-.9-2-2-2ZM25,38l-4.2-21h9.3l4.2,21h-9.3ZM7.4,17h9.3l4.2,21h-9.3l-4.2-21ZM47.6,38h-9.3l-4.2-21h9.6l3.9,21Z" /><path d="M20.1,43.3c-3.3,0-6,2.7-6,6s2.7,6,6,6,6-2.7,6-6-2.7-6-6-6ZM20.1,51.2c-1.1,0-2-.9-2-2s.9-2,2-2,2,.9,2,2-.9,2-2,2Z" /><path d="M42.1,43.3c-3.3,0-6,2.7-6,6s2.7,6,6,6,6-2.7,6-6-2.7-6-6-6ZM42.1,51.2c-1.1,0-2-.9-2-2s.9-2,2-2,2,.9,2,2-.9,2-2,2Z" /></svg></TransitionLink></li>
+                <li><TransitionLink href={`/`} onClick={() => closeMenuFunction(false)}>
+                    <CartIcon />
+                </TransitionLink></li>
             </ul>
         </div>
     );
@@ -26,54 +29,59 @@ const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     // const [menu, setMenu] = useState<MenuItem[]>([]);
 
-    // useEffect(() => {
-    //     fetchNav().then((navs) => {
-    //         // Assumes navs[0].menu is the menu array
-    //         if (navs && navs.length > 0 && Array.isArray(navs[0].menu)) {
-    //             setMenu(
-    //                 navs[0].menu
-    //                     .filter((item) => typeof item.title === 'string' && typeof item.slug === 'string')
-    //                     .map((item) => ({
-    //                         title: item.title,
-    //                         slug: item.slug,
-    //                     }))
-    //             );
-    //         }
-    //     });
-    // }, []);
-
     return (
-        <nav className="fixed w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.0)]">
-            <div className="container mx-auto p-4 flex items-center justify-between">
-                <TransitionLink href="/" passHref>
-                    <Image
-                        src="/logo-central-land-white-white.png"
-                        alt="central"
-                        className="logo h-10 w-auto"
-                        width={565 * 0.5}
-                        height={120 * 0.5}
-                        priority
-                    />
-                </TransitionLink>
+        <nav className="top-nav fixed w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,0.75)] to-[rgba(0,0,0,0.0)]">
+            <div className="container mx-auto p-4">
+                <div className="social-links flex items-center justify-start space-x-4">
+                    <TiktokIcon size={4} />
+                    <FacebookIcon size={4} />
+                    <InstaIcon size={4} />
+                </div>
+                <div className="nav-links flex items-center justify-between mt-4 border-t-1 border-t-white pt-4">
+                    <TransitionLink href="/" passHref>
+                        <Image
+                            src="/logo-central-land-white-white.png"
+                            alt="central"
+                            className="logo h-10 w-auto"
+                            width={565 * 0.5}
+                            height={120 * 0.5}
+                            priority
+                        />
+                    </TransitionLink>
 
-                {/* Hamburger button for md and below */}
-                <button
-                    className="md:hidden flex flex-col justify-center items-center w-10 h-10"
-                    aria-label="Toggle menu"
-                    onClick={() => setMenuOpen((open) => !open)}
-                >
-                    <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-                    <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
-                    <span className={`block w-4 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-                </button>
+                    {/* Hamburger button for md and below */}
+                    <button
+                        className="md:hidden flex flex-col justify-center items-center w-10 h-10"
+                        aria-label="Toggle menu"
+                        onClick={() => setMenuOpen((open) => !open)}
+                    >
+                        <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                        <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
+                        <span className={`block w-4 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+                    </button>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:block">
-                    <ul className="flex space-x-6 text-white uppercase font-bold">
-                        <li><TransitionLink href={`/estudios`}>Estudios</TransitionLink></li>
-                        <li><TransitionLink href={`/equipo`}>Equipo</TransitionLink></li>
-                        <li><TransitionLink href={`/`}><svg className='fill-white w-6 h6' viewBox="0 0 60 60"><path d="M53.7,3.7h-10c-.6,0-1.2.3-1.5.7-.4.5-.5,1.1-.4,1.6l1.3,6.9h-11.3s0,0,0,0h-13.3s0,0,0,0H5c-.6,0-1.2.3-1.5.7s-.5,1.1-.4,1.7l5,25c.2.9,1,1.6,2,1.6h40c.6,0,1.2-.3,1.5-.7.4-.5.5-1.1.4-1.6l-5.9-31.9h7.6c1.1,0,2-.9,2-2s-.9-2-2-2ZM25,38l-4.2-21h9.3l4.2,21h-9.3ZM7.4,17h9.3l4.2,21h-9.3l-4.2-21ZM47.6,38h-9.3l-4.2-21h9.6l3.9,21Z" /><path d="M20.1,43.3c-3.3,0-6,2.7-6,6s2.7,6,6,6,6-2.7,6-6-2.7-6-6-6ZM20.1,51.2c-1.1,0-2-.9-2-2s.9-2,2-2,2,.9,2,2-.9,2-2,2Z" /><path d="M42.1,43.3c-3.3,0-6,2.7-6,6s2.7,6,6,6,6-2.7,6-6-2.7-6-6-6ZM42.1,51.2c-1.1,0-2-.9-2-2s.9-2,2-2,2,.9,2,2-.9,2-2,2Z" /></svg></TransitionLink></li>
-                    </ul>
+                    {/* Desktop Menu */}
+                    <div className="hidden md:block">
+                        <ul className="flex items-center  space-x-12 text-white uppercase font-bold">
+                            <li><TransitionLink href={`/estudios`}>Estudios</TransitionLink></li>
+                            <li><TransitionLink href={`/equipo`}>Equipo</TransitionLink></li>
+                            <li><TransitionLink href={`/faq`}>FAQ</TransitionLink></li>
+                        </ul>
+                    </div>
+
+                    <div className="rightNav hidden md:block">
+                        <div className="flex items-center  space-x-6 text-white uppercase font-bold">
+
+                            <div className="hidden lg:block">
+                                <TransitionLink href={`/`}>
+                                    <button className="button-white">
+                                        Reservar Estudios
+                                    </button>
+                                </TransitionLink>
+                            </div>
+                            <TransitionLink href={`/`}><CartIcon size={10} /></TransitionLink>
+                        </div>
+                    </div>
                 </div>
             </div>
 
