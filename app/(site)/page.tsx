@@ -19,6 +19,8 @@ export default function Home() {
 
 
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.normalizeScroll(true);
+
   const size = useWindowSize();
   // const { setItemHovered } = useContext(HoverContext);
   // const [theme, setTheme] = useState<boolean | null>(null);
@@ -32,7 +34,7 @@ export default function Home() {
   const startAnimation = contextSafe(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: pageRef.current, // Target the box element
+        trigger: pageRef.current, // Target the box element,
         start: "0%",
         end: `25%`,
         scrub: true,
