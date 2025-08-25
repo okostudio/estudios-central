@@ -23,7 +23,7 @@ export default function Home() {
 
 
   gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.normalizeScroll(true);
+  // ScrollTrigger.normalizeScroll(true);
 
   const size = useWindowSize();
   // const { setItemHovered } = useContext(HoverContext);
