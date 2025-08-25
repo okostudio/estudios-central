@@ -23,7 +23,7 @@ export default function Home() {
 
 
   gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.normalizeScroll(true);
+  // ScrollTrigger.normalizeScroll(true);
 
   const size = useWindowSize();
   // const { setItemHovered } = useContext(HoverContext);
@@ -71,7 +71,7 @@ export default function Home() {
       .to(".hero-circle", {
         y: "80vh",
         ease: Sine.easeInOut,
-      }, 0.05)
+      }, 0)
       .to(".hero-scroll-icon", {
         duration: 0.125,
         y: "10vh",
