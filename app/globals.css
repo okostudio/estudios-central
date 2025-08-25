@@ -31,21 +31,21 @@ body {
 .page-transition-exit {
   opacity: 0;
   background: black;
-  transform: translateY(40px);
+  /* transform: translateY(40px); */
   transition-timing-function: cubic-bezier(0, 0, .4, 1);
 }
 
 .page-transition-enter {
   opacity: 0;
   background: black;
-  transform: translateY(-40px);
+  /* transform: translateY(-40px); */
   transition-duration: 0ms;
 }
 
 .page-transition-on-page-load {
   opacity: 0;
   background: black;
-  transform: translateY(-40px);
+  /* transform: translateY(-40px); */
   transition-duration: 0ms;
 }
 
@@ -62,13 +62,30 @@ button {
 }
 
 button.primary {
-  @apply bg-red-500 text-white border-red-500 border-1 hover:bg-transparent hover:text-red-500 hover:text-black;
+  @apply bg-red-700 text-white border-red-700 border-1 hover:bg-transparent hover:text-red-500;
 }
 
 button.secondary {
-  @apply bg-transparent text-white border-white border-1 hover:bg-white hover:text-black;
+  @apply bg-transparent text-white border-white border-1 hover:border-red-500 hover:bg-transparent hover:text-red-500;
 }
 
 .button-white {
-  @apply bg-transparent text-white border-white border-1 hover:bg-white hover:text-black;
+  /* @apply bg-transparent text-white border-white border-1 hover:bg-white hover:text-black; */
+  @apply bg-transparent text-white border-white border-1 hover:border-red-500 hover:bg-transparent hover:text-red-500;
 }
+
+
+/* .equipos-home {
+  background-color: #c4a76f;
+}
+
+
+.equipos-home::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #c4a76f;
+  mix-blend-mode: multiply;
+  content: "";
+} */

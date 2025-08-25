@@ -35,7 +35,7 @@ export default function CustomLink({
           });
         }
       }}
-      className={classes}
+      className={`cursor-pointer ${classes}`}
     >
       {children}
     </div>

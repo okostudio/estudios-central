@@ -13,6 +13,10 @@ import Link from "next/link"
 import Hero from "@/components/hero";
 import Nav from "@/components/nav";
 import SmoothScroll from "@/components/common/SmoothScroll";
+import Estudios from "@/components/partials/Estudios";
+import EquiposHome from "@/components/partials/EquiposHome";
+import Map from "@/components/partials/Map";
+import Footer from "@/components/partials/Footer";
 
 
 export default function Home() {
@@ -26,6 +30,8 @@ export default function Home() {
   // const [theme, setTheme] = useState<boolean | null>(null);
   const isMobile = useDeviceDetection();
   const pageRef = useRef<HTMLDivElement | null>(null);
+  const equiposRef = useRef<HTMLDivElement | null>(null);
+  const heroRef = useRef<HTMLDivElement | null>(null);
   const { contextSafe } = useGSAP({ scope: pageRef });
 
 
@@ -34,9 +40,9 @@ export default function Home() {
   const startAnimation = contextSafe(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: pageRef.current, // Target the box element,
-        start: "0%",
-        end: `25%`,
+        trigger: heroRef.current, // Target the box element,
+        start: "10%",
+        end: `90%`,
         scrub: true,
         // onEnter: function () {
         //   collapseAnimation();
@@ -54,29 +60,29 @@ export default function Home() {
         y: "-2em",
         opacity: 0
       })
-      .set(".intro-text", {
+      .set(".intro-text h1", {
         y: "-30vh",
         opacity: 0
       })
       .to(".hero-logo", {
-        y: "80vh",
+        y: "120vh",
         ease: Sine.easeInOut,
       }, 0)
       .to(".hero-circle", {
-        y: "50vh",
+        y: "80vh",
         ease: Sine.easeInOut,
-      }, 0)
+      }, 0.05)
       .to(".hero-scroll-icon", {
         duration: 0.125,
         y: "10vh",
         opacity: 0,
         ease: Sine.easeInOut,
       }, 0)
-      .to(".intro-text", {
+      .to(".intro-text h1", {
         y: 0,
         opacity: 1,
         ease: Sine.easeInOut,
-      }, 0)
+      }, 0.05)
       .to(".social-links svg", {
         y: 0,
         opacity: 1,
@@ -88,7 +94,19 @@ export default function Home() {
         opacity: 1,
         ease: Sine.easeInOut,
       }, 0)
+
+    const tlPageColor = gsap.timeline({
+      scrollTrigger: {
+        trigger: equiposRef.current, // Target the box element,
+        start: "-15%",
+        end: `-5%%`,
+        scrub: true,
+      }
+    })
+      .to(pageRef.current, { backgroundColor: "white", color: "black", ease: Power3.easeInOut })
   });
+
+
 
   useEffect(() => {
     if (pageRef.current !== null) startAnimation();
@@ -101,11 +119,14 @@ export default function Home() {
 
   return (
     <>
-      <div ref={pageRef}>
+      <div ref={pageRef} className="bg-black text-white">
         <SmoothScroll />
 
+        <div ref={heroRef}>
+          <Hero />
+        </div>
+
         <Nav />
-        <Hero />
 
         {/* intro */}
         <section className="container mx-auto px4 overflow-y-hidden">
@@ -123,28 +144,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* estudios */}
-        <section className="container mx-auto px-4">
-          <div className="hero grid grid-cols-1 md:grid-cols-12 gap-2 mb-8">
+        <Estudios />
 
-            <Link href={"/estudios"} className="relative group md:col-span-8">
-              <img
-                src="/_studio-01.jpg"
-                alt="Hero Image"
-                className="w-full h-svw md:w-auto md:h-full object-cover"
-              />
-              <div className="absolute w-full top-0"><h2 className="m-8 py-2 px-6 transition-padding duration-300 ease-out group-hover:pl-7 bg-black opacity-95 text-white mx-auto inline-block text-center font-bold text-3xl lg:text-5xl">Estudios</h2></div>
-            </Link>
-            <Link href={"/equipo"} className="relative group md:col-span-4">
-              <img
-                src="/Digital-Camera-Canon-RF-15-35mm-f2.8-L-IS-USM.jpg"
-                alt="Hero Image"
-                className="w-full h-svw md:w-auto md:h-full object-cover"
-              />
-              <div className="absolute w-full top-0"><h2 className="m-8 py-2 px-6 transition-padding duration-300 ease-out group-hover:pl-7 bg-black opacity-95 text-white mx-auto inline-block text-center font-bold text-3xl lg:text-5xl">Equipo</h2></div>
-            </Link>
-          </div>
-        </section>
+        <div ref={equiposRef}>
+          <EquiposHome />
+        </div>
+
+        <Map />
+
+        <Footer />
       </div>
     </>
   );

@@ -9,7 +9,7 @@ import SessionProvider from "@/components/common/SessionContext";
 import HoverProvider from "@/components/common/HoverContext";
 import CartProvider from "@/components/common/CartContext";
 
-import SmoothScroll from "@/components/common/SmoothScroll";
+import PageLoader from "@/components/partials/PageLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,15 +41,16 @@ export default async function RootLayout({
             <SessionProvider>
               <HoverProvider>
                 <CartProvider>
-
-                  {children}
-
+                  <PageLoader>
+                    {children}
+                  </PageLoader>
                 </CartProvider>
               </HoverProvider>
             </SessionProvider>
           </ThemeProvider>
 
         </div>
+
       </body>
     </html>
   );

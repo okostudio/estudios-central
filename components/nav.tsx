@@ -30,8 +30,8 @@ const Nav = () => {
     // const [menu, setMenu] = useState<MenuItem[]>([]);
 
     return (
-        <nav className="top-nav fixed w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,0.75)] to-[rgba(0,0,0,0.0)]">
-            <div className="container mx-auto p-4">
+        <nav className="top-nav sticky top-0 w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0.75)]">
+            <div className="/*container mx-auto*/ p-2 pt-4 px-4 lg:pt-8 lg:px-8">
                 <div className="social-links flex items-center justify-start space-x-4">
                     <TiktokIcon size={4} />
                     <FacebookIcon size={4} />

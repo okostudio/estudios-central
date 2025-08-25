@@ -9,6 +9,7 @@ import React, { ReactNode } from "react";
 interface TransitionLinkProps extends LinkProps {
     children: ReactNode;
     href: string;
+    classes?: string
 }
 
 
@@ -20,6 +21,7 @@ function sleep(ms: number) {
 export const TransitionLink = ({
     children,
     href,
+    classes,
     ...props
 }: TransitionLinkProps) => {
     const router = useRouter();
@@ -31,11 +33,11 @@ export const TransitionLink = ({
 
         body?.classList.add("page-transition-exit");
 
-        await sleep(300)
+        await sleep(250)
         console.log('Navigating to', href);
 
         router.push(href);
-
+        await sleep(250);
         body?.classList.remove("page-transition-exit");
         body?.classList.add("page-transition-enter");
         await sleep(30); // Wait for the transition to complete
@@ -44,6 +46,7 @@ export const TransitionLink = ({
 
     return (
         <Link
+            className={classes}
             onClick={handleTransition}
             href={href}
             {...props}
