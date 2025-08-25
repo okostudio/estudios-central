@@ -23,7 +23,7 @@ export default function Home() {
 
 
   gsap.registerPlugin(ScrollTrigger);
-  // ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.normalizeScroll(true);
 
   const size = useWindowSize();
   // const { setItemHovered } = useContext(HoverContext);
@@ -65,7 +65,7 @@ export default function Home() {
         opacity: 0
       })
       .to(".hero-logo", {
-        y: "120vh",
+        y: "100vh",
         ease: Sine.easeInOut,
       }, 0)
       .to(".hero-circle", {
@@ -132,11 +132,11 @@ export default function Home() {
         <section className="container mx-auto px4 overflow-y-hidden">
           <div className="flex min-h-[40vh] justify-center items-center">
             <div className="intro-text text-center px-12 py-12 lg:max-w-[70vw]">
-              <h1 className="text-5xl">Central estudios, ofrecen espacio para producciones fotográficas y audiovisual.</h1>
+              <h1 className="text-3xl lg:text-5xl">Central estudios, ofrecen espacio para producciones fotográficas y audiovisual.</h1>
               <p className="mt-8">
                 El espacio de 413 metros cuadrados se divide en varias areas, cuenta con dos estudios, un area en común, entrada de vehiculo, patio abierto con opción de techado, escalera rebatible, elevador. Ademas cuenta con un rental de fotografía y audiovisual con un amplio listado de flashes, luces, cámara y grip.
               </p>
-              <div className="flex justify-center mt-8 gap-4">
+              <div className="flex flex-col md:flex-row items-center md:justify-center mt-8 gap-4">
                 <button className="primary">Reservar estudios</button>
                 <button className="secondary">Ver equipos</button>
               </div>

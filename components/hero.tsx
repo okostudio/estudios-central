@@ -21,7 +21,9 @@ const Hero = () => {
 
                 <div className="absolute w-full h-full">
                     <div className="w-full h-full flex items-center justify-center">
-                        <div className="hero-circle w-[40vw] lg:h-[50vh] lg:w-auto rounded-full aspect-square bg-red-900 bg-opacity-80"></div>
+                        <div className="hero-circle w-[40vw] lg:h-[50vh] lg:w-auto aspect-square opacity-95">
+                            <img src="/red-circle.png" className="w-full h-full" />
+                        </div>
                     </div>
                 </div>
                 <div className="hero content flex flex-col items-center justify-center">

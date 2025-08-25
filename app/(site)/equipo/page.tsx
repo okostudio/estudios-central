@@ -1,4 +1,8 @@
 
+import Nav from "@/components/nav";
+import Footer from "@/components/partials/Footer";
+import Map from "@/components/partials/Map";
+
 import { fetchProducts } from "@/sanity/sanity-utils";
 import Products from "../../../components/products";
 
@@ -13,10 +17,14 @@ export default async function About() {
 
     return (
         <>
+            <Nav />
             <section className="pt-24 bg-white text-black min-h-svh">
 
                 <Products products={products} />
             </section>
+
+            <Map />
+            <Footer />
         </>
     );
 }

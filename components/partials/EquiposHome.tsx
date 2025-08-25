@@ -34,17 +34,17 @@ const EquiposHome = () => {
             </div>
             <div className="w-full px-4 lg:px-8 relative">
 
-                <div className="grid grid-cols-6 xl:grid-cols-12 min-h-full w-full py-12  gap-4 md:gap-12 md:gap-y-36">
-                    <Equipo cols={"col-span-4 xl:col-span-3"} imgUrl={"/equipos/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />
+                <div className="grid grid-cols-6 lg:grid-cols-12 min-h-full w-full py-12  gap-4 md:gap-12 md:gap-y-36">
+                    <Equipo cols={"col-span-4 lg:col-span-3"} imgUrl={"/equipos/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />
                     <Equipo cols={"col-span-2"} imgUrl={"/equipos/Light-Control-Frame-Cloth.jpg"} />
                     <Equipo cols={"col-span-2"} imgUrl={"/equipos/Light-Flash-Profoto-Softbox-RFI-5--Octa.png.jpg"} />
-                    <Equipo cols={"col-span-4 xl:col-span-3"} imgUrl={"/equipos/Light-Flash-Profoto-D2-1000W.jpg"} />
-                    <Equipo cols={"col-span-3 xl:col-span-2"} imgUrl={"/equipos/Digital-Camera-Fuji-GFX-100-S-II.jpg"} />
-                    <div className='col-span-3 xl:col-span-4 relative md:pr-[50%] content-end'>
+                    <Equipo cols={"col-span-4 lg:col-span-3"} imgUrl={"/equipos/Light-Flash-Profoto-D2-1000W.jpg"} />
+                    <Equipo cols={"col-span-3 lg:col-span-2"} imgUrl={"/equipos/Digital-Camera-Fuji-GFX-100-S-II.jpg"} />
+                    <div className='col-span-3 lg:col-span-4 relative md:pr-[50%] content-end'>
                         <p>Equipos de nivel profesional listos para cual quier sesión. Cámaras,luces y accesorios seleccionados para garantizar resultados de calidad.</p>
                     </div>
                     <Equipo cols={"col-span-2"} imgUrl={"/equipos/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />
-                    <Equipo cols={"col-span-4 xl:col-span-3"} imgUrl={"/equipos/Light-Control-Frame-Cloth.jpg"} />
+                    <Equipo cols={"col-span-4 lg:col-span-3"} imgUrl={"/equipos/Light-Control-Frame-Cloth.jpg"} />
                 </div>
 
             </div>

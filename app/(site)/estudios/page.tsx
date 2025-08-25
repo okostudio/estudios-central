@@ -1,4 +1,7 @@
 
+import Nav from "@/components/nav";
+import Footer from "@/components/partials/Footer";
+import Map from "@/components/partials/Map";
 import { fetchStudiuoImages } from "@/sanity/sanity-utils";
 import { Image } from "next-sanity/image";
 
@@ -13,6 +16,7 @@ export default async function Studios() {
 
     return (
         <>
+            <Nav />
             <div className="container mx-auto px-4">
                 <div className="gallery grid grid-cols-1 md:grid-cols-12 gap-2 mb-8">
                     {photos[0].galleryImages.map((image) => (
@@ -27,6 +31,9 @@ export default async function Studios() {
                     ))}
                 </div>
             </div>
+
+            <Map />
+            <Footer />
         </>
     );
 }
