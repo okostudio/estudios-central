@@ -12,7 +12,7 @@ const Hero = () => {
 
 
     return (
-        <section className="HERO relative w-full h-[100vh] bg-black mb-20 overflow-hidden">
+        <section className="HERO relative w-full h-[100svh] bg-black mb-20 overflow-hidden">
             <video muted autoPlay loop playsInline disablePictureInPicture className="absolute w-full h-full object-cover opacity-75">
                 <source src="/placeholder-video-hero.mp4" type="video/mp4" />
                 {/* Your browser does not support the video tag. */}
@@ -21,7 +21,7 @@ const Hero = () => {
 
                 <div className="absolute w-full h-full">
                     <div className="w-full h-full flex items-center justify-center">
-                        <div className="hero-circle w-[40vw] lg:h-[50vh] lg:w-auto aspect-square opacity-95">
+                        <div className="hero-circle w-[60vw] lg:h-[50vh] lg:w-auto aspect-square opacity-85">
                             <img src="/red-circle.png" className="w-full h-full" />
                         </div>
                     </div>
