@@ -14,8 +14,10 @@ const EquiposHome = () => {
     const Equipo = ({ cols, rows, imgUrl }: EquipoProps) => {
         return (
             <div className={`${cols ? cols : "col-span-2"} ${rows ? rows : "row-span-1"} content-stretch aspect-[3/4] relative`}>
-                <TransitionLink href={"/equipo"} classes={'h-full group'}>
-                    <img src={imgUrl} className='h-full mb-4 object-cover saturate-0 group-hover:mix-blend-normal group-hover:saturate-100' />
+                <TransitionLink href={"/equipo"} hoverText={"Ver equipos"} classes={'h-full group'}>
+                    <div className="h-full transition-colors ease-out duration-300 group-hover:bg-white">
+                        <img src={imgUrl} className='h-full mb-4 object-cover ' />
+                    </div>
                     <h3 className='text-xs lg:text-sm mb-8'>
                         Digital Camera Canon EOS 5D Mark II
                     </h3>
@@ -40,7 +42,7 @@ const EquiposHome = () => {
                     <Equipo cols={"col-span-2"} imgUrl={"/equipos/Light-Flash-Profoto-Softbox-RFI-5--Octa.png.jpg"} />
                     <Equipo cols={"col-span-4 lg:col-span-3"} imgUrl={"/equipos/Light-Flash-Profoto-D2-1000W.jpg"} />
                     <Equipo cols={"col-span-3 lg:col-span-2"} imgUrl={"/equipos/Digital-Camera-Fuji-GFX-100-S-II.jpg"} />
-                    <div className='col-span-3 lg:col-span-4 relative md:pr-[50%] content-end'>
+                    <div className='col-span-3 lg:col-span-4 relative md:pr-[50%] content-start'>
                         <p>Equipos de nivel profesional listos para cual quier sesión. Cámaras,luces y accesorios seleccionados para garantizar resultados de calidad.</p>
                     </div>
                     <Equipo cols={"col-span-2"} imgUrl={"/equipos/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />

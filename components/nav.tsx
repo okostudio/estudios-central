@@ -5,7 +5,6 @@ import { TransitionLink } from './TransitionLink';
 import { CartIcon, FacebookIcon, InstaIcon, TiktokIcon } from './icons/icons';
 
 
-
 type NavLinksProps = {
     isMobile: boolean;
     closeMenuFunction: (open: boolean) => void;
@@ -30,14 +29,14 @@ const Nav = () => {
     // const [menu, setMenu] = useState<MenuItem[]>([]);
 
     return (
-        <nav className="top-nav sticky top-0 w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0.75)]">
-            <div className="/*container mx-auto*/ p-2 pt-4 px-4 lg:pt-8 lg:px-8">
-                <div className="social-links flex items-center justify-start space-x-4">
+        <nav className="top-nav fixed top-0 w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0.75)]">
+            <div className="/*container mx-auto*/ p-2  px-4">
+                {/* <div className="social-links flex items-center justify-start text-white space-x-4 border-b-1 border-b-white pb-4">
                     <TiktokIcon size={4} />
                     <FacebookIcon size={4} />
                     <InstaIcon size={4} />
-                </div>
-                <div className="nav-links flex items-center justify-between mt-4 border-t-1 border-t-white pt-4">
+                </div> */}
+                <div className="nav-links flex items-center justify-between">
                     <TransitionLink href="/" passHref>
                         <Image
                             src="/logo-central-land-white-white.png"

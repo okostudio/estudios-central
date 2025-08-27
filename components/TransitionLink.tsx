@@ -2,14 +2,16 @@
 
 import Link, { LinkProps } from "next/link";
 import { useRouter } from 'next/navigation';
-
-import React, { ReactNode } from "react";
+import { HoverContext } from "@/components/common/HoverContext";
+import React, { ReactNode, useContext } from "react";
 
 
 interface TransitionLinkProps extends LinkProps {
     children: ReactNode;
     href: string;
     classes?: string
+    hoverText?: string
+    hoverScale?: number
 }
 
 
@@ -22,9 +24,12 @@ export const TransitionLink = ({
     children,
     href,
     classes,
+    hoverText,
+    hoverScale,
     ...props
 }: TransitionLinkProps) => {
     const router = useRouter();
+    const { setItemHovered } = useContext(HoverContext);
 
     const handleTransition = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault();
@@ -48,6 +53,17 @@ export const TransitionLink = ({
         <Link
             className={classes}
             onClick={handleTransition}
+
+            onMouseMove={(e) => {
+                if (hoverText) {
+                    setItemHovered({
+                        x: e.clientX,
+                        y: e.clientY,
+                        text: hoverText,
+                        scale: hoverScale ? hoverScale : 1,
+                    });
+                }
+            }}
             href={href}
             {...props}
         >

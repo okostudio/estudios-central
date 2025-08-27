@@ -3,7 +3,7 @@
 // import Products from "./components/products";
 
 import Link from "next/link"
-import Hero from "../../components/hero";
+import Hero from "../../components/partials/Hero";
 
 export default async function Home() {
   // const products = await fetchProducts();

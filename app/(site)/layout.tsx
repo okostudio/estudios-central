@@ -10,6 +10,7 @@ import HoverProvider from "@/components/common/HoverContext";
 import CartProvider from "@/components/common/CartContext";
 
 import PageLoader from "@/components/partials/PageLoader";
+import CursorFollower from "@/components/ui/CursorFollower";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,22 +36,19 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className="antialiased tracking-tight bg-black text-white">
-          <ThemeProvider>
-            <SessionProvider>
-              <HoverProvider>
-                <CartProvider>
-                  <PageLoader>
-                    {children}
-                  </PageLoader>
-                </CartProvider>
-              </HoverProvider>
-            </SessionProvider>
-          </ThemeProvider>
-
-        </div>
-
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased tracking-tight bg-black text-white">`}>
+        <ThemeProvider>
+          <SessionProvider>
+            <HoverProvider>
+              <CartProvider>
+                {/* <PageLoader> */}
+                {children}
+                <CursorFollower />
+                {/* </PageLoader> */}
+              </CartProvider>
+            </HoverProvider>
+          </SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

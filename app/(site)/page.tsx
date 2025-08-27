@@ -2,17 +2,18 @@
 // import { fetchProducts } from "@/sanity/sanity-utils";
 // import Products from "./components/products";
 
-import React, { useEffect, useRef } from "react"
+import React, { useContext, useEffect, useRef } from "react"
 import gsap, { Sine, Power3, Linear } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useWindowSize } from "@uidotdev/usehooks";
 import useDeviceDetection from "@/libs/hooks/useDeviceDetection";
 import { useGSAP } from "@gsap/react";
 
-import Link from "next/link"
-import Hero from "@/components/hero";
+
+import Hero from "@/components/partials/Hero";
 import Nav from "@/components/nav";
 import SmoothScroll from "@/components/common/SmoothScroll";
+import { HoverContext } from "@/components/common/HoverContext";
 import Estudios from "@/components/partials/Estudios";
 import EquiposHome from "@/components/partials/EquiposHome";
 import Map from "@/components/partials/Map";
@@ -33,6 +34,7 @@ export default function Home() {
   const equiposRef = useRef<HTMLDivElement | null>(null);
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { contextSafe } = useGSAP({ scope: pageRef });
+  const { setItemHovered } = useContext(HoverContext);
 
 
 
@@ -53,10 +55,6 @@ export default function Home() {
       }
     })
       .set(".social-links svg", {
-        y: "-2em",
-        opacity: 0
-      })
-      .set(".top-nav", {
         y: "-2em",
         opacity: 0
       })
@@ -98,12 +96,12 @@ export default function Home() {
     const tlPageColor = gsap.timeline({
       scrollTrigger: {
         trigger: equiposRef.current, // Target the box element,
-        start: "-15%",
-        end: `-5%%`,
+        start: "-10%",
+        end: `0%`,
         scrub: true,
       }
     })
-      .to(pageRef.current, { backgroundColor: "white", color: "black", ease: Power3.easeInOut })
+      .to(pageRef.current, { backgroundColor: "#eee", color: "black", ease: Power3.easeInOut })
   });
 
 
@@ -119,14 +117,17 @@ export default function Home() {
 
   return (
     <>
-      <div ref={pageRef} className="bg-black text-white">
+      <div ref={pageRef} className="bg-white text-black"
+        onPointerMove={(e) => {
+          setItemHovered({ text: "", x: e.clientX, y: e.clientY, scale: 1 });
+        }}
+      >
         <SmoothScroll />
+        <Nav />
 
         <div ref={heroRef}>
           <Hero />
         </div>
-
-        <Nav />
 
         {/* intro */}
         <section className="container mx-auto px4 overflow-y-hidden">

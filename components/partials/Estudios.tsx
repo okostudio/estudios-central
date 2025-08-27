@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TransitionLink } from '@/components/TransitionLink'
 
+
 const Estudios = () => {
+
 
     return (
         <section className='mb-24'>
@@ -10,7 +12,7 @@ const Estudios = () => {
                 <div className="md:grid grid-flow-col grid-cols-8 min-h-full w-full py-12">
                     <div className="col-span-3 content-stretch">
                         <div className="h-full flex justify-between flex-col">
-                            <TransitionLink href={"/estudios"} classes="m-12 md:m-0 mb-12">
+                            <TransitionLink href={"/estudios"} hoverText={"Estudio Chico"} classes="m-12 md:m-0 mb-12" >
                                 <img src="/studio-sml.jpg" className='w-full mb-4' alt="" />
                                 <h3 className='text-2xl lg:text-4xl mb-8'>
                                     Estudio //<br />
@@ -31,7 +33,7 @@ const Estudios = () => {
 
 
                     <div className="col-span-4 col-start-5 ">
-                        <TransitionLink href={"/estudios"}>
+                        <TransitionLink href={"/estudios"} hoverText={"Estudio Grande"} >
                             <img src="/studio-lrg.jpg" className='w-full mb-4' alt="" />
                             <h3 className='text-2xl lg:text-4xl mb-8'>
                                 Estudio //<br />
