@@ -37,16 +37,12 @@ export const TransitionLink = ({
         const body = document.querySelector("body");
 
         body?.classList.add("page-transition-exit");
-
-        await sleep(250)
-        console.log('Navigating to', href);
-
+        await sleep(150)
         router.push(href);
-        await sleep(250);
+        await sleep(150)
+
+
         body?.classList.remove("page-transition-exit");
-        body?.classList.add("page-transition-enter");
-        await sleep(30); // Wait for the transition to complete
-        body?.classList.remove("page-transition-enter");
     }
 
     return (

@@ -73,7 +73,7 @@ const Nav = () => {
 
                             <div className="hidden lg:block">
                                 <TransitionLink href={`/`}>
-                                    <button className="button-white">
+                                    <button className="secondary">
                                         Reservar Estudios
                                     </button>
                                 </TransitionLink>

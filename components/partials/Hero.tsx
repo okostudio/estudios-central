@@ -45,7 +45,7 @@ const Hero = () => {
                 </div>
             </div>
             <div className="hero-scroll-icon absolute w-full bottom-0">
-                <div className="flex flex-col items-center justify-center mb-8">
+                <div className="flex flex-col text-white items-center justify-center mb-8">
                     <ScrollIcon size={12} />
                 </div>
             </div>
