@@ -209,7 +209,26 @@ export default function Nav({
                                 <h3>${cartTotal}.00</h3>
                             </div>
                             <p className="italic text-xs mb-6">Sujeto a confirmación</p>
-                            <button className="black flex items-center gap-3 text-white rounded-full px-4 py-4 mb-1 mx-auto bg-black hover:bg-green-700"><span className='md:text-sm'>Enviar solicitud por WhatsApp</span> <WhatsappIcon /></button>
+                            <button
+                                className="black flex items-center gap-3 text-white rounded-full px-4 py-4 mb-1 mx-auto bg-black hover:bg-green-700"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const phoneNumber = "+59891068840"; // e.g., "1234567890"
+                                    const draftMessage = [
+                                        "Hola, me gustaría reservar los siguientes productos:",
+                                        "",
+                                        ...filteredProducts.map(product => `• ${product.title} - $${product.price}.00`),
+                                        "-------",
+                                        `TOTAL: ${cartTotal}.00`,
+                                        "",
+                                        "¿Podrían confirmarme la disponibilidad?"
+                                    ].join('\n');
+                                    const encodedMessage = encodeURIComponent(draftMessage);
+                                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                                    window.open(whatsappUrl, "_blank");
+
+                                }}
+                            ><span className='md:text-sm'>Enviar solicitud por WhatsApp</span> <WhatsappIcon /></button>
                             <p className="italic text-xs text-center">Se abrirá WhatsApp con tu selección prellenada.</p>
                         </div>
                     </div>
