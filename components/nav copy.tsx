@@ -1,0 +1,164 @@
+"use client";
+import React, { useContext, useEffect, useState } from 'react'
+import Image from "next/image";
+
+import { ProductType } from '@/types/Product';
+
+import { TransitionLink } from './TransitionLink';
+import { CartIcon, CartFullIcon, FacebookIcon, InstaIcon, TiktokIcon } from './icons/icons';
+import { CartContext } from '@/components/common/CartContext';
+// import useDeviceDetection from "@/libs/hooks/useDeviceDetection";
+
+
+type NavComponentProps = {
+    products: ProductType[];
+};
+
+export default function NavCopy({
+    products,
+}: NavComponentProps) {
+
+    console.log("NAV PRODUCTS:", products)
+
+    // const isMobile = useDeviceDetection();
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [cartOpen, setCartOpen] = useState(false);
+    const { cart, setCart } = useContext(CartContext);
+
+    // const filteredProducts = cart ? products.filter(product => cart.includes(product._id)) : [];
+
+    const toggeMenu = (open: boolean) => {
+        setCartOpen(false)
+        setMenuOpen(open)
+    }
+    const toggeCart = (open: boolean) => {
+        setMenuOpen(false)
+        setCartOpen(open)
+    }
+
+    // const [menu, setMenu] = useState<MenuItem[]>([]);
+
+    useEffect(() => {
+        console.log("nav cart", cart.length)
+    }, [cart])
+
+    return (
+        <nav className="top-nav fixed top-0 w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0.75)]">
+            <div className="/*container mx-auto*/ p-2  px-4">
+                {/* <div className="social-links flex items-center justify-start text-white space-x-4 border-b-1 border-b-white pb-4">
+                    <TiktokIcon size={4} />
+                    <FacebookIcon size={4} />
+                    <InstaIcon size={4} />
+                </div> */}
+                <div className="nav-links flex items-center justify-between">
+
+                    {/* LOGO */}
+                    <TransitionLink href="/" passHref>
+                        <Image
+                            src="/central-horz-blanco.svg"
+                            alt="central"
+                            className="logo h-8 md:h-10 w-auto"
+                            width={565 * 0.5}
+                            height={120 * 0.5}
+                            priority
+                        />
+                    </TransitionLink>
+
+                    {/* Desktop Menu */}
+                    <div className="hidden md:block">
+                        <ul className="flex items-center  space-x-12 text-white uppercase font-bold">
+                            <li><TransitionLink href={`/estudios`}>Estudios</TransitionLink></li>
+                            <li><TransitionLink href={`/equipo`}>Equipo</TransitionLink></li>
+                            <li><TransitionLink href={`/faq`}>FAQ</TransitionLink></li>
+                        </ul>
+                    </div>
+
+                    <div className="rightNav">
+                        <div className="flex items-center  space-x-2 md:space-x-6 text-white uppercase font-bold">
+
+                            {/* Hamburger button for md and below */}
+                            <button
+                                className="md:hidden flex flex-col justify-center items-center size-10"
+                                aria-label="Toggle menu"
+                                onClick={() => toggeMenu((open) => !open)}
+                            >
+                                <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                                <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
+                                <span className={`block w-4 h-0.5 bg-white transition-all ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+                            </button>
+
+                            {/* RESERVE STUDIOS */}
+                            <div className="hidden lg:block">
+                                <TransitionLink href={`/`}>
+                                    <button className="secondary">
+                                        Reservar Estudios
+                                    </button>
+                                </TransitionLink>
+                            </div>
+
+                            {/* CART BUTTON */}
+                            <div
+                                className='CART-BUTTON relative flex justify-center items-center size-10'
+                                onClick={() => { toggeCart(!cartOpen) }}
+                            >
+                                {cart.length > 0
+                                    ?
+                                    <>
+                                        <div className="select-none text-xs font-bold text-black text-center mr-[0.15em] mb-[0.65em]">{cart.length}</div>
+                                        <div className='absolute -z-10 top-0 left-0'><CartFullIcon size={10} /></div>
+                                    </>
+
+                                    :
+                                    <CartIcon size={10} />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile menu */}
+            {menuOpen && (
+                <div className={"MOBILE-NAV md:hidden bg-black w-full h-screen absolute left-0 top-full z-10"}>
+                    <ul className={`flex flex-col items-center justify-center h-full py-4 space-y-4 text-2xl text-white uppercase font-bold`}>
+                        <li><TransitionLink href={`/estudios`} onClick={() => setMenuOpen(false)}>Estudios</TransitionLink></li>
+                        <li><TransitionLink href={`/equipo`} onClick={() => setMenuOpen(false)}>Equipo</TransitionLink></li>
+                    </ul>
+                </div>
+            )}
+            <div
+                className={
+                    `
+                        CART bg-white/95 text-black h-screen absolute right-0 top-full z-10
+                        w-full md:w-128
+                        ${cartOpen ? "translate-x-0" : "translate-x-full"} transition-transform ease-in-out duration-300
+                        `}
+            >
+                {/* 
+                
+
+                CART SELECTION
+                TODO: CREATE NEW COMPONENTE FOR 
+                
+                */
+
+                }
+                <div>
+                    <h3>Seleccion</h3>
+                    {
+                        // filteredProducts
+                        //     .map(product => (
+                        //         <div key={product._id}>
+                        //             <span>{product.title}</span>
+                        //         </div>
+                        //     ))
+                        cart.length
+                    }
+                </div>
+            </div>
+        </nav >
+    );
+}
+
+
+

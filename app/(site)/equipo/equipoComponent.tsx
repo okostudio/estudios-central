@@ -1,31 +1,31 @@
 "use client"
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import Image from "next/image";
 
 import { ProductType } from '@/types/Product';
 import { HoverContext } from '@/components/common/HoverContext';
-import Nav from '@/components/nav';
-import Footer from '@/components/partials/Footer';
 import { CartContext } from '@/components/common/CartContext';
+import CursorFollowWrapper from '@/components/common/CursorFollowWrapper';
 
 
 type EquipoComponentProps = {
   products: ProductType[];
 };
 
-
-
 export default function EquipoComponent({
   products,
 }: EquipoComponentProps) {
-
+  const pageRef = useRef<HTMLDivElement | null>(null);
+  const { setItemHovered } = useContext(HoverContext);
   const { cart, setCart } = useContext(CartContext)
+
   const addToCart = (productId: string) => {
     setCart((prev: string[]) => {
       if (prev.includes(productId)) return prev;
       return [...prev, productId];
     });
   };
+
   const toggleCart = (productId: string) => {
     setCart((prev: string[]) =>
       prev.includes(productId)
@@ -34,23 +34,15 @@ export default function EquipoComponent({
     );
   };
 
-  useEffect(() => {
-    console.log("cart", cart)
-  }, [cart])
-
-
-  const pageRef = useRef<HTMLDivElement | null>(null);
-  const { setItemHovered } = useContext(HoverContext);
-
-
+  //
+  //
+  // FILTERS
+  //
   // Get all unique categories
   const categories = Array.from(new Set(products.map((product) => product.category)));
 
   // State for selected categories
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
-  // State for selected products (for selection, not filtering)
-  const [selectedProducts, setSelectedProducts] = useState<ProductType[]>([]);
 
   // Filter products by selected categories
   const filteredProducts =
@@ -71,13 +63,7 @@ export default function EquipoComponent({
   const handleClearFilters = () => setSelectedCategories([]);
 
   return (
-    <div ref={pageRef} className="bg-white text-black"
-      onPointerMove={(e) => {
-        setItemHovered({ text: "", x: e.clientX, y: e.clientY, scale: 1 });
-      }}
-    >
-      <Nav />
-
+    <CursorFollowWrapper>
       <div className="container mx-auto px-4 py-24">
         {/* Filter Component */}
         <div className="filters mb-4">
@@ -156,8 +142,7 @@ export default function EquipoComponent({
           })}
         </div>
       </div>
-      <Footer />
-    </div>
+    </CursorFollowWrapper>
   );
 }
 

@@ -8,6 +8,7 @@ const getSize = (size?: number) => {
         case 2: return "size-2";
         case 3: return "size-3";
         case 4: return "size-4";
+        case 4: return "size-5";
         case 6: return "size-6";
         case 8: return "size-8";
         case 10: return "size-10";
@@ -44,6 +45,39 @@ export const CartIcon = ({ size }: IconProps) => {
     );
 }
 
+export const CartFullIcon = ({ size }: IconProps) => {
+    return (
+        <svg width="100" height="100" viewBox="0 0 100 100" className={`${getSize(size ? size : 6)} fill-none stroke-current stroke-round stroke-join-round stroke-6`}>
+            <path d="M78.2,23.5h-5.8c-2.4,0-4.5,1.8-4.9,4.1l-4.3,25.9h-30l-4.6-19.3" />
+            <g className="stroke-5 stroke-round">
+                <circle cx="37.2" cy="68.5" r="5" />
+                <circle cx="59.2" cy="68.5" r="5" />
+            </g>
+            <polygon className="fill-current" points="70.6 23.5 63.4 52.5 34.4 53.5 25.2 23.5 70.6 23.5" />
+        </svg>
+    );
+}
+
+
+export const WhatsappIcon = ({ size }: IconProps) => {
+    return (
+        <svg width="100" height="100" viewBox="0 0 100 100" className={`${getSize(size ? size : 6)} fill-none stroke-0`}>
+            <path className="stroke-current stroke-6" d="M87.5,50c0-20.7-16.8-37.5-37.5-37.5S12.5,29.3,12.5,50s3.9,17.8,3.9,17.8l-2.9,18.8,17-4s9.3,5,19.5,5c20.7,0,37.5-16.8,37.5-37.5Z" />
+            <path className="fill-current" d="M72,64.3c.2-.8.1-2,0-3-.2-1.2-1-2.2-2.2-2.5l-8.6-2.5c-1.2-.3-2.4,0-3.2.9l-2.4,2.7c-.4.5-1.1.6-1.7.4-1.6-.8-5-2.5-8.2-5.4-3.3-2.9-5.4-6-6.4-7.5-.4-.6-.3-1.3.1-1.8l2.4-2.7c.8-.9,1-2.2.5-3.3l-3.6-8.2c-.5-1.1-1.6-1.8-2.8-1.8-1,0-2.2,0-3,.4-1.6.6-5.2,4.5-5.3,9.4,0,4.9,2.5,12,13,21.3,10.5,9.2,17.9,10.9,22.8,10.1,4.9-.7,8.2-4.8,8.7-6.5Z" />
+        </svg>
+    )
+}
+
+
+export const TrashIcon = ({ size }: IconProps) => {
+    return (
+        <svg width="100" height="100" viewBox="0 0 100 100" className={`${getSize(size ? size : 6)} fill-current stroke-0`}>
+            <path d="M42.7,42.6c2,0,3.7,1.7,3.7,3.7v22.3c0,2-1.6,3.7-3.7,3.7s-3.7-1.7-3.7-3.7v-22.3c0-2,1.6-3.7,3.7-3.7Z" />
+            <path d="M61,68.6v-22.3c0-2-1.6-3.7-3.7-3.7s-3.7,1.7-3.7,3.7v22.3c0,2,1.6,3.7,3.7,3.7s3.7-1.7,3.7-3.7Z" />
+            <path d="M31.6,24v-3.7c0-3,1.2-5.8,3.2-7.9,2.1-2.1,4.9-3.3,7.8-3.3h14.7c2.9,0,5.7,1.2,7.8,3.3,2.1,2.1,3.2,4.9,3.2,7.9v3.7h14.7c2,0,3.7,1.7,3.7,3.7s-1.6,3.7-3.7,3.7h-3.7v48.3c0,3-1.2,5.8-3.2,7.9-2.1,2.1-4.9,3.3-7.8,3.3H31.6c-2.9,0-5.7-1.2-7.8-3.3-2.1-2.1-3.2-4.9-3.2-7.9V31.4h-3.7c-2,0-3.7-1.7-3.7-3.7s1.6-3.7,3.7-3.7h14.7ZM40.1,17.7c.7-.7,1.6-1.1,2.6-1.1h14.7c1,0,1.9.4,2.6,1.1.7.7,1.1,1.6,1.1,2.6v3.7h-22v-3.7c0-1,.4-1.9,1.1-2.6ZM28,31.4v48.3c0,1,.4,1.9,1.1,2.6.7.7,1.6,1.1,2.6,1.1h36.7c1,0,1.9-.4,2.6-1.1.7-.7,1.1-1.6,1.1-2.6V31.4H28Z" />
+        </svg>
+    )
+}
 
 export const FacebookIcon = ({ size }: IconProps) => {
     return (

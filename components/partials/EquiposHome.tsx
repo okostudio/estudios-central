@@ -18,9 +18,9 @@ const EquiposHome = () => {
                     <div className="h-full transition-colors ease-out duration-300 group-hover:bg-white">
                         <img src={imgUrl} className='h-full mb-4 object-cover ' />
                     </div>
-                    <h3 className='text-xs lg:text-sm mb-8'>
+                    <h5 className='text-xs lg:text-sm mb-8'>
                         Digital Camera Canon EOS 5D Mark II
-                    </h3>
+                    </h5>
                 </TransitionLink>
             </div>
         )
@@ -32,7 +32,7 @@ const EquiposHome = () => {
     return (
         <section className='equipos-home py-24'>
             <div className="container mx-auto p-4">
-                <h3 className='text-3xl md:text-5xl'>Alquiler <br /> de Equipos</h3>
+                <h2 className='text-3xl md:text-5xl'>Alquiler <br /> de Equipos</h2>
             </div>
             <div className="w-full px-4 lg:px-8 relative">
 
