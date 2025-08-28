@@ -149,7 +149,7 @@ export default function Nav({
             <div
                 className={
                     `
-                        CART bg-white/95 text-black fixed right-0 top-0 h-[100svh] z-200 overflow-x-clip
+                        CART bg-white/95 text-black fixed right-0 top-0 h-[100dvh] z-200 overflow-x-clip
                         w-full md:w-128 shadow-2xl 
                         
                         ${cartOpen ? "translate-x-0" : "translate-x-full"} transition-transform ease-in-out duration-300
