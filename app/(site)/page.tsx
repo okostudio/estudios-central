@@ -3,7 +3,7 @@
 // import Products from "./components/products";
 
 import React, { useContext, useEffect, useRef } from "react"
-import gsap, { Sine, Power3, Linear } from "gsap";
+import gsap, { Sine, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useWindowSize } from "@uidotdev/usehooks";
 import useDeviceDetection from "@/libs/hooks/useDeviceDetection";

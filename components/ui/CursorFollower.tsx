@@ -42,7 +42,7 @@ export default function CursorFollower() {
     >
 
       <div
-        className={`absolute flex flex-col justify-center items-center rounded-full transition-all ease-out duration-250 ${itemHovered.scale === 1.5 ? "scale-200" : ""} ${itemHovered.text.length === 0 ? "bg-red-800/75 w-5 h-5" : "bg-red-800/90 w-18 h-18 p-2"} overflow-hidden`}
+        className={`absolute flex flex-col justify-center items-center rounded-full transition-all ease-out duration-250 ${itemHovered.scale === 1.5 ? "scale-200" : ""} ${itemHovered.text.length === 0 ? "bg-red-800/75 w-5 h-5" : "bg-black/90 text-white w-18 h-18 p-2"} overflow-hidden`}
       >
         <div className="absolute text-sm text-center leading-[0.9] font-bold text-cursor mb-[0.1]">
           {itemHovered.text}

@@ -1,36 +1,27 @@
 "use client";
 import React, { Dispatch, SetStateAction, useState } from "react";
-import { ProductType } from '@/types/Product';
-
 
 type CartContextProps = {
     children: React.ReactNode;
 };
-type CartProps = {
-    products: ProductType[];
-};
 
 interface CartContextInterface {
-    cart: CartProps;
-    setCart: Dispatch<SetStateAction<CartProps>>;
+    cart: string[]; // Now just an array of productIDs
+    setCart: Dispatch<SetStateAction<string[]>>;
 }
 
 const defaultState = {
-    cart: { products: [] },
+    cart: [],
     setCart: () => { },
 } as CartContextInterface;
 
 export const CartContext = React.createContext(defaultState);
 
 export default function CartProvider({ children }: CartContextProps) {
-    const [cart, setCart] = useState<CartProps>({
-        products: [],
-    });
+    const [cart, setCart] = useState<string[]>([]);
     return (
-        <>
-            <CartContext.Provider value={{ cart, setCart }}>
-                {children}
-            </CartContext.Provider>
-        </>
+        <CartContext.Provider value={{ cart, setCart }}>
+            {children}
+        </CartContext.Provider>
     );
 }

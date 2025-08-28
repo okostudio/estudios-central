@@ -1,30 +1,13 @@
-
-import Nav from "@/components/nav";
-import Footer from "@/components/partials/Footer";
-import Map from "@/components/partials/Map";
-
 import { fetchProducts } from "@/sanity/sanity-utils";
-import Products from "../../../components/products";
+import EquipoComponent from "./equipoComponent";
 
 export default async function About() {
     const products = await fetchProducts();
-    console.log(products);
-
-    // const selectedProducts = useState(() => {
-    //   // return products.filter((product) => product.selected);
-    // })
 
 
     return (
         <>
-            <Nav />
-            <section className="pt-24 bg-white text-black min-h-svh">
-
-                <Products products={products} />
-            </section>
-
-            <Map />
-            <Footer />
+            <EquipoComponent products={products} />
         </>
     );
 }
