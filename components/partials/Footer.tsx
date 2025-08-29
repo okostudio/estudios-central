@@ -25,7 +25,7 @@ const Footer = () => {
                             <div className="nav-links mx-auto md:mx-0">
                                 <ul className="flex items-center  space-x-12 text-white uppercase font-bold">
                                     <li><TransitionLink href={`/estudios`}>Estudios</TransitionLink></li>
-                                    <li><TransitionLink href={`/equipo`}>Equipo</TransitionLink></li>
+                                    <li><TransitionLink href={`/equipos`}>Equipos</TransitionLink></li>
                                     <li><TransitionLink href={`/faq`}>FAQ</TransitionLink></li>
                                 </ul>
                             </div>

@@ -68,7 +68,7 @@ export default function NavCopy({
                     <div className="hidden md:block">
                         <ul className="flex items-center  space-x-12 text-white uppercase font-bold">
                             <li><TransitionLink href={`/estudios`}>Estudios</TransitionLink></li>
-                            <li><TransitionLink href={`/equipo`}>Equipo</TransitionLink></li>
+                            <li><TransitionLink href={`/equipos`}>Equipo</TransitionLink></li>
                             <li><TransitionLink href={`/faq`}>FAQ</TransitionLink></li>
                         </ul>
                     </div>
@@ -122,7 +122,7 @@ export default function NavCopy({
                 <div className={"MOBILE-NAV md:hidden bg-black w-full h-screen absolute left-0 top-full z-10"}>
                     <ul className={`flex flex-col items-center justify-center h-full py-4 space-y-4 text-2xl text-white uppercase font-bold`}>
                         <li><TransitionLink href={`/estudios`} onClick={() => setMenuOpen(false)}>Estudios</TransitionLink></li>
-                        <li><TransitionLink href={`/equipo`} onClick={() => setMenuOpen(false)}>Equipo</TransitionLink></li>
+                        <li><TransitionLink href={`/equipos`} onClick={() => setMenuOpen(false)}>Equipo</TransitionLink></li>
                     </ul>
                 </div>
             )}

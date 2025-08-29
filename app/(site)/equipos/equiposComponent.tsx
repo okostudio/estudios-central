@@ -1,13 +1,10 @@
 "use client"
-import React, { useContext, useRef, useState } from 'react'
-import Image from "next/image";
+import React, { useContext, useState } from 'react'
 
 import { ProductType } from '@/types/Product';
-import { HoverContext } from '@/components/common/HoverContext';
 import { CartContext } from '@/components/common/CartContext';
 import CursorFollowWrapper from '@/components/common/CursorFollowWrapper';
 import Equipo from '@/components/partials/Equipo';
-
 
 type EquipoComponentProps = {
   products: ProductType[];
@@ -16,7 +13,6 @@ type EquipoComponentProps = {
 export default function EquipoComponent({
   products,
 }: EquipoComponentProps) {
-  const pageRef = useRef<HTMLDivElement | null>(null);
   const { cart, setCart } = useContext(CartContext)
 
   const addToCart = (productId: string) => {
@@ -67,8 +63,9 @@ export default function EquipoComponent({
       <div className="mx-auto px-8 py-24">
         {/* Filter Component */}
         <div className="filters mb-4">
-          <div className="flex items-center justify-between mb-2">
-            <h1 className="text-3xl md:text-5xl tracking-tight pb-4 font-bold">Solicitud de alquiler de equipos</h1>
+          <div className="my-8">
+            <h1 className="text-4xl md:text-6xl mb-2 tracking-tight">Solicitud de alquiler de equipos</h1>
+            <p className="text-xl md:text-2xl mb-8 tracking-tight">Crea tu listado de equipos, indicá las fechas de uso y recibí la confirmación de disponibilidad por WhatsApp.</p>
           </div>
           <div className="flex flex-wrap gap-2 mb-4 pb-4 opacity-80 ">
 

@@ -67,7 +67,7 @@ export default function Nav({
                         <div className="hidden md:block">
                             <ul className="flex items-center  space-x-12 text-white uppercase font-bold">
                                 <li><TransitionLink href={`/estudios`}>Estudios</TransitionLink></li>
-                                <li><TransitionLink href={`/equipo`}>Equipo</TransitionLink></li>
+                                <li><TransitionLink href={`/equipos`}>Equipos</TransitionLink></li>
                                 <li><TransitionLink href={`/faq`}>FAQ</TransitionLink></li>
                             </ul>
                         </div>
@@ -111,7 +111,7 @@ export default function Nav({
             <div className={`MOBILE-NAV md:hidden bg-black w-full h-screen z-50 left-0 top-0 fixed transition-all ease-in-out duration-300 ${menuOpen ? "-translate-x-0 opacity-100" : "translate-x-[100vw] opacity-0"}`}>
                 <ul className={`flex flex-col items-center justify-center h-full py-4 space-y-4 text-2xl text-white uppercase font-bold`}>
                     <li><TransitionLink href={`/estudios`} onClick={() => setMenuOpen(false)}>Estudios</TransitionLink></li>
-                    <li><TransitionLink href={`/equipo`} onClick={() => setMenuOpen(false)}>Equipo</TransitionLink></li>
+                    <li><TransitionLink href={`/equipos`} onClick={() => setMenuOpen(false)}>Equipos</TransitionLink></li>
                 </ul>
             </div>
 

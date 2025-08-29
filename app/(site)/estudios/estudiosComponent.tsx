@@ -95,7 +95,7 @@ export default function EstudiosComponent({
                                 </ul>
                                 <div>
                                     <button
-                                        className="black button-large flex items-center gap-3 text-white rounded-full px-4 py-4 mb-1 mx-auto bg-black hover:bg-green-700"
+                                        className="black button-large flex items-center gap-3 text-white rounded-2 px-4 py-4 mb-1 mx-auto bg-black hover:bg-green-700"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             const phoneNumber = "+59891068840"; // e.g., "1234567890"
@@ -179,7 +179,7 @@ export default function EstudiosComponent({
                                 </ul>
                                 <div>
                                     <button
-                                        className="black button-large flex items-center gap-3 text-white rounded-full px-4 py-4 mb-1 mx-auto bg-black hover:bg-green-700"
+                                        className="black button-large flex items-center gap-3 text-white rounded-2 px-4 py-4 mb-1 mx-auto bg-black hover:bg-green-700"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             const phoneNumber = "+59891068840"; // e.g., "1234567890"

@@ -11,7 +11,6 @@ type EquipoProps = {
     toggleCart: (productId: string) => void;
 };
 
-
 const Equipo = ({
     product,
     addToCart,

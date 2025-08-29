@@ -14,7 +14,7 @@ import Hero from "@/components/partials/Hero";
 import SmoothScroll from "@/components/common/SmoothScroll";
 import { HoverContext } from "@/components/common/HoverContext";
 import Estudios from "@/components/partials/Estudios";
-import EquiposHome from "@/components/partials/EquiposHome";
+import EquiposHome from "@/components/partials/equiposHome";
 import Map from "@/components/partials/Map";
 import CursorFollowWrapper from "@/components/common/CursorFollowWrapper";
 import Link from "next/link";
@@ -113,7 +113,7 @@ export default function HomeComponent() {
 
                 <div className="flex flex-col md:flex-row items-start mt-8 gap-x-8 gap-y-4">
                   <TransitionLink href="/estudios"><button className="secondary button-large w-full min-w-[90vw] md:min-w-72">Ver estudios</button></TransitionLink>
-                  <TransitionLink href="/equipo"><button className="secondary button-large w-full min-w-[90vw] md:min-w-72">Ver equipos</button></TransitionLink>
+                  <TransitionLink href="/equipos"><button className="secondary button-large w-full min-w-[90vw] md:min-w-72">Ver equipos</button></TransitionLink>
                 </div>
               </div>
             </div>
