@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '@/components/common/CartContext';
 import { ProductType } from '@/types/Product';
 import Image from 'next/image';
 import { HoverContext } from '../common/HoverContext';
+import useDeviceDetection from '@/libs/hooks/useDeviceDetection';
 
 type EquipoProps = {
     product: ProductType;
@@ -16,15 +17,20 @@ const Equipo = ({
     addToCart,
     toggleCart
 }: EquipoProps) => {
-
+    const isMobile = useDeviceDetection();
     const { setItemHovered } = useContext(HoverContext);
     const { cart, setCart } = useContext(CartContext)
+    const [showDescription, setShowDescription] = useState<boolean>(false);
+
     const isInCart = cart.includes(product._id);
     return (
         <div
             key={product._id}
             className={`group col ${product._id} cursor-pointer`}
-            onClick={() => { toggleCart(product._id) }}
+            onClick={() => {
+                setShowDescription(false)
+                toggleCart(product._id)
+            }}
             onMouseMove={(e) => {
                 e.preventDefault();
                 // setItemHovered({ text: "Leer \n más", fontSize: "text-xs", x: e.clientX, y: e.clientY, scale: 0.6 });
@@ -33,11 +39,20 @@ const Equipo = ({
         >
             <div className="image relative w-full h-auto overflow-hidden">
                 <Image src={product.imageUrl} alt={product.imageAlt || product.title} width={480} height={480} className="scale-120 group-hover:scale-100 aspect-[3/4] object-cover transition duration-200 ease-out" />
-                <div className="description">
-                    <div className="absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full -translate-x-10 group-hover:translate-x-0 bg-gray-200/95 flex flex-col items-start justify-between opacity-0 group-hover:opacity-100 transition duration-200 ease-in-out">
-                        <span className="text-black text-xs mb-4">{product.description}</span>
+                {!isMobile ?
+                    <div className="description">
+                        <div className="absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full -translate-x-10 group-hover:translate-x-0 bg-gray-200/95 flex flex-col items-start justify-between opacity-0 group-hover:opacity-100 transition duration-200 ease-in-out">
+                            <span className="text-black text-xs mb-4">{product.description}</span>
+                        </div>
                     </div>
-                </div>
+                    :
+                    <div className="description">
+                        <div className={`absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full  bg-gray-200/95 flex flex-col items-start justify-start transition duration-200 ease-in-out ${showDescription ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
+                            <div className="w-full text-right mb-4"><span className="absolute rotate-45 top-2 right-2">+</span></div>
+                            <span className="text-black text-xs mb-4">{product.description}</span>
+                        </div>
+                    </div>
+                }
             </div>
             {/* description */}
             <div className="flex align-start justify-between mt-3 leading-none text-grey-600">
@@ -49,7 +64,13 @@ const Equipo = ({
                             currency: 'USD',
                         }).format(product.price)
                     }</p>
-                    <p className="text-xs md:hidden text-red-700/80">Leer más</p>
+                    <p
+                        className="text-xs md:hidden text-red-700/80"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setShowDescription(!showDescription)
+                        }}
+                    >Leer más</p>
                 </div>
                 <div className='ml-3'>
                     <button

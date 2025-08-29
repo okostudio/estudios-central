@@ -113,7 +113,7 @@ export default function HomeComponent() {
 
                 <div className="flex flex-col md:flex-row items-start md:justify-center mt-8 gap-4">
                   <TransitionLink href="/estudios"><button className="secondary button-large">Ver estudios</button></TransitionLink>
-                  <TransitionLink href="/equipos"><button className="secondary button-large">Ver equipos</button></TransitionLink>
+                  <TransitionLink href="/equipo"><button className="secondary button-large">Ver equipos</button></TransitionLink>
                 </div>
               </div>
             </div>
