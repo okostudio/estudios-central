@@ -11,7 +11,7 @@ const Map = () => {
             </div>
             <Link className='relative w-full' target='_blank' href={"https://www.google.com/maps/place/Av.+Gonzalo+Ram%C3%ADrez+1630,+11200+Montevideo,+Departamento+de+Montevideo/"}>
                 <img src="/mapa.jpg" alt="" className='h-[50svh] lg:h-auto w-full object-cover' />
-                <div className="top-0 absolute w-full h-full flex items-center justify-center">
+                <div className="top-0 absolute w-full h-full flex items-center justify-center pointer-events-none">
                     <MapPin size={8} classes={'fill-red-700 mb-6'} />
                 </div>
             </Link>

@@ -62,7 +62,7 @@ export default function EstudiosComponent({
                                 <p className="text-lg md:text-2xl mb-16">Los  tragaluces hacen un espacio muy luminoso y agradable</p>
 
                                 <h3 className="text-4xl md:text-6xl mb-4">Equipos</h3>
-                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16">
+                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16 pl-4">
                                     <li>Tripodes</li>
                                     <li>boom</li>
                                     <li>tamiz</li>
@@ -75,7 +75,7 @@ export default function EstudiosComponent({
                                 </ul>
 
                                 <h3 className="text-4xl md:text-6xl mb-4">Equipamiento</h3>
-                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16">
+                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16 pl-4">
                                     <li>elevador</li>
                                     <li>mesas</li>
                                     <li>sillas</li>
@@ -87,7 +87,7 @@ export default function EstudiosComponent({
                                 </ul>
 
                                 <h3 className="text-4xl md:text-6xl mb-4">Área común</h3>
-                                <ul className="list-disc text-lg md:text-2xl grid md:grid-cols-2 gap-2 gap-x-16 mb-16">
+                                <ul className="list-disc text-lg md:text-2xl grid md:grid-cols-2 gap-2 gap-x-16 mb-16 pl-4">
                                     <li>Entrada vehicular</li>
                                     <li>Patio abierto con opción de cerrado</li>
                                     <li>Posibilidad de armado de mesas para comer</li>
@@ -146,7 +146,7 @@ export default function EstudiosComponent({
                                 </p>
 
                                 <h3 className="text-4xl md:text-6xl mb-4">Equipos</h3>
-                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16">
+                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16 pl-4">
                                     <li>Tripodes</li>
                                     <li>boom</li>
                                     <li>tamiz</li>
@@ -159,7 +159,7 @@ export default function EstudiosComponent({
                                 </ul>
 
                                 <h3 className="text-4xl md:text-6xl mb-4">Equipamiento</h3>
-                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16">
+                                <ul className="list-disc text-lg md:text-2xl grid grid-cols-2 md:grid-cols-4 gap-2 gap-x-16 mb-16 pl-4">
                                     <li>elevador</li>
                                     <li>mesas</li>
                                     <li>sillas</li>
@@ -171,7 +171,7 @@ export default function EstudiosComponent({
                                 </ul>
 
                                 <h3 className="text-4xl md:text-6xl mb-4">Área común</h3>
-                                <ul className="list-disc text-lg md:text-2xl grid md:grid-cols-2 gap-2 gap-x-16 mb-16">
+                                <ul className="list-disc text-lg md:text-2xl grid md:grid-cols-2 gap-2 gap-x-16 mb-16 pl-4">
                                     <li>Entrada vehicular</li>
                                     <li>Patio abierto con opción de cerrado</li>
                                     <li>Posibilidad de armado de mesas para comer</li>

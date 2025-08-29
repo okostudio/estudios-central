@@ -65,7 +65,7 @@ export default function Nav({
             {cartOpen ? null : <SmoothScroll />}
 
             <nav className="top-nav fixed top-0 w-full z-100 bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(0,0,0,0.75)]">
-                <div className="/*container mx-auto*/ p-2  px-4">
+                <div className="p-2  px-4">
                     {/* <div className="social-links flex items-center justify-start text-white space-x-4 border-b-1 border-b-white pb-4">
                     <TiktokIcon size={4} />
                     <FacebookIcon size={4} />
@@ -101,7 +101,7 @@ export default function Nav({
                                 <button
                                     className="md:hidden flex flex-col justify-center items-center size-10"
                                     aria-label="Toggle menu"
-                                    onClick={() => toggleMenu(!open)}
+                                    onClick={() => toggleMenu(!menuOpen)}
                                 >
                                     <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
                                     <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
@@ -112,7 +112,7 @@ export default function Nav({
                                 <div className="hidden lg:block">
                                     <TransitionLink href={`/estudios`}>
                                         <button className="secondary">
-                                            Reservar Estudios
+                                            Ver Estudios
                                         </button>
                                     </TransitionLink>
                                 </div>
@@ -128,7 +128,6 @@ export default function Nav({
                                             <div className="select-none text-xs font-bold text-black text-center mr-[0.15em] mb-[0.65em]">{cart.length}</div>
                                             <div className='absolute -z-10 top-0 left-0'><CartFullIcon size={10} /></div>
                                         </>
-
                                         :
                                         <CartIcon size={10} />
                                     }
@@ -137,18 +136,20 @@ export default function Nav({
                         </div>
                     </div>
                 </div>
-
                 {/* Mobile menu */}
-                {menuOpen && (
-                    <div className={"MOBILE-NAV md:hidden bg-black w-full h-screen absolute left-0 top-0 z-100"}>
-                        <ul className={`flex flex-col items-center justify-center h-full py-4 space-y-4 text-2xl text-white uppercase font-bold`}>
-                            <li><TransitionLink href={`/estudios`} onClick={() => setMenuOpen(false)}>Estudios</TransitionLink></li>
-                            <li><TransitionLink href={`/equipo`} onClick={() => setMenuOpen(false)}>Equipo</TransitionLink></li>
-                        </ul>
-                    </div>
-                )}
+
+
 
             </nav >
+
+            {/* Mobile Nav expanded */}
+            <div className={`MOBILE-NAV md:hidden bg-black w-full h-screen z-50 left-0 top-0 fixed transition-all ease-in-out duration-300 ${menuOpen ? "-translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}`}>
+                <ul className={`flex flex-col items-center justify-center h-full py-4 space-y-4 text-2xl text-white uppercase font-bold`}>
+                    <li><TransitionLink href={`/estudios`} onClick={() => setMenuOpen(false)}>Estudios</TransitionLink></li>
+                    <li><TransitionLink href={`/equipo`} onClick={() => setMenuOpen(false)}>Equipo</TransitionLink></li>
+                </ul>
+            </div>
+
 
             {/* SHOPPING CART  */}
             <div

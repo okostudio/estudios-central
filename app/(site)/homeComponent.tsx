@@ -17,6 +17,8 @@ import Estudios from "@/components/partials/Estudios";
 import EquiposHome from "@/components/partials/EquiposHome";
 import Map from "@/components/partials/Map";
 import CursorFollowWrapper from "@/components/common/CursorFollowWrapper";
+import Link from "next/link";
+import { TransitionLink } from "@/components/TransitionLink";
 
 
 export default function HomeComponent() {
@@ -105,14 +107,13 @@ export default function HomeComponent() {
           {/* intro */}
           <section className="container mx-auto px4 overflow-y-hidden">
             <div className="flex min-h-[40vh] justify-center items-center">
-              <div className="intro-text text-center px-12 py-12 lg:max-w-[70vw]">
-                <h1 className="text-3xl lg:text-5xl">Central estudios, ofrecen espacio para producciones fotográficas y audiovisual.</h1>
-                <p className="mt-8">
-                  El espacio de 413 metros cuadrados se divide en varias areas, cuenta con dos estudios, un area en común, entrada de vehiculo, patio abierto con opción de techado, escalera rebatible, elevador. Ademas cuenta con un rental de fotografía y audiovisual con un amplio listado de flashes, luces, cámara y grip.
-                </p>
-                <div className="flex flex-col md:flex-row items-center md:justify-center mt-8 gap-4">
-                  <button className="primary">Reservar estudios</button>
-                  <button className="secondary">Ver equipos</button>
+              <div className="intro-text px-12 py-12 lg:max-w-[70vw]">
+                <h1 className="text-5xl md:text-7xl mb-8">Central estudios, ofrecen espacio para producciones fotográficas y audiovisual.</h1>
+                <p className="text-lg md:text-2xl mb-4">El espacio de 413 metros cuadrados se divide en varias areas, cuenta con dos estudios, un area en común, entrada de vehiculo, patio abierto con opción de techado, escalera rebatible, elevador. Ademas cuenta con un rental de fotografía y audiovisual con un amplio listado de flashes, luces, cámara y grip.</p>
+
+                <div className="flex flex-col md:flex-row items-start md:justify-center mt-8 gap-4">
+                  <TransitionLink href="/estudios"><button className="secondary button-large">Ver estudios</button></TransitionLink>
+                  <TransitionLink href="/equipos"><button className="secondary button-large">Ver equipos</button></TransitionLink>
                 </div>
               </div>
             </div>
