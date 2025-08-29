@@ -37,16 +37,23 @@ const Equipo = ({
                 setItemHovered({ text: isInCart ? "-" : "+", fontSize: "text-2xl", x: e.clientX, y: e.clientY, scale: 0.5 });
             }}
         >
-            <div className="image relative w-full h-auto overflow-hidden">
-                <Image src={product.imageUrl} alt={product.imageAlt || product.title} width={480} height={480} className="scale-120 group-hover:scale-100 aspect-[3/4] object-cover transition duration-200 ease-out" />
+            <div className="image relative w-full h-auto">
+                <div className='overflow-hidden'>
+                    <Image src={product.imageUrl} alt={product.imageAlt || product.title} width={480} height={480} className="scale-120 aspect-[3/4] object-cover transition duration-200 ease-out" />
+                </div>
+                <div className='overflow-hidden absolute top-0 left-0 w-full h-full'>
+                    <Image src={product.imageUrl} alt={product.imageAlt || product.title} width={480} height={480} className="scale-120 aspect-[3/4] object-cover transition duration-200 ease-out" />
+                </div>
+
+
                 {!isMobile ?
-                    <div className="description">
-                        <div className="absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full -translate-x-10 group-hover:translate-x-0 bg-gray-200/95 flex flex-col items-start justify-between opacity-0 group-hover:opacity-100 transition duration-200 ease-in-out">
+                    <div className="description overflow-hidden">
+                        <div className="absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full  bg-gray-200/95 flex flex-col items-start justify-between opacity-0 group-hover:opacity-100 transition duration-500 ease-in-out">
                             <span className="text-black text-xs mb-4">{product.description}</span>
                         </div>
                     </div>
                     :
-                    <div className="description">
+                    <div className="description overflow-hidden">
                         <div className={`absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full  bg-gray-200/95 flex flex-col items-start justify-start transition duration-200 ease-in-out ${showDescription ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
                             <div className="w-full text-right mb-4"><span className="absolute rotate-45 top-2 right-2">+</span></div>
                             <span className="text-black text-xs mb-4">{product.description}</span>
@@ -70,7 +77,7 @@ const Equipo = ({
                             e.stopPropagation();
                             setShowDescription(!showDescription)
                         }}
-                    >Leer más</p>
+                    >Detalles</p>
                 </div>
                 <div className='ml-3'>
                     <button

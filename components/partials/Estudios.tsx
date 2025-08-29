@@ -7,7 +7,7 @@ const Estudios = () => {
 
     return (
         <section className='mb-24'>
-            <div className="container mx-auto px-4 relative">
+            <div className="container mx-auto px-8 relative">
 
                 <div className="md:grid grid-flow-col grid-cols-8 min-h-full w-full py-12">
                     <div className="col-span-3 content-stretch">

@@ -105,15 +105,15 @@ export default function HomeComponent() {
           </div>
 
           {/* intro */}
-          <section className="container mx-auto px4 overflow-y-hidden">
-            <div className="flex min-h-[40vh] justify-center items-center">
+          <section className="overflow-y-hidden bg-gray-100 mb-16 md:mb-32">
+            <div className="container mx-auto px4 flex min-h-[100svh] justify-center items-center">
               <div className="intro-text px-12 py-12 lg:max-w-[70vw]">
                 <h1 className="text-5xl md:text-7xl mb-8">Central estudios, ofrecen espacio para producciones fotográficas y audiovisual.</h1>
                 <p className="text-lg md:text-2xl mb-4">El espacio de 413 metros cuadrados se divide en varias areas, cuenta con dos estudios, un area en común, entrada de vehiculo, patio abierto con opción de techado, escalera rebatible, elevador. Ademas cuenta con un rental de fotografía y audiovisual con un amplio listado de flashes, luces, cámara y grip.</p>
 
-                <div className="flex flex-col md:flex-row items-start md:justify-center mt-8 gap-4">
-                  <TransitionLink href="/estudios"><button className="secondary button-large">Ver estudios</button></TransitionLink>
-                  <TransitionLink href="/equipo"><button className="secondary button-large">Ver equipos</button></TransitionLink>
+                <div className="flex flex-col md:flex-row items-start mt-8 gap-x-8 gap-y-4">
+                  <TransitionLink href="/estudios"><button className="secondary button-large w-full min-w-[90vw] md:min-w-72">Ver estudios</button></TransitionLink>
+                  <TransitionLink href="/equipo"><button className="secondary button-large w-full min-w-[90vw] md:min-w-72">Ver equipos</button></TransitionLink>
                 </div>
               </div>
             </div>

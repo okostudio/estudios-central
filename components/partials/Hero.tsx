@@ -33,8 +33,9 @@ const Hero = () => {
 
                 <div className="absolute w-full h-full">
                     <div className="w-full h-full flex items-center justify-center">
-                        <div className="hero-circle w-[80vw] h-[80vw] md:h-[50vh] md:w-auto aspect-square opacity-75">
-                            <img src="/red-circle.png" className="w-full h-full" />
+                        <div className="hero-circle w-[80vw] h-[80vw] md:h-[50vh] md:w-auto aspect-square">
+                            {/* <img src="/red-circle.png" className="w-full h-full" /> */}
+                            <div className="w-full h-full rounded-full bg-red-900/80"></div>
                         </div>
                     </div>
                 </div>

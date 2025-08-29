@@ -57,7 +57,7 @@ body {
 
 /* BUTTONS */
 button {
-  @apply rounded-full font-bold text-xs uppercase px-5 py-2 transition-colors duration-300 ease-out cursor-pointer;
+  @apply font-bold text-xs uppercase px-5 py-2 transition-colors duration-300 ease-out cursor-pointer;
 }
 
 button.primary {

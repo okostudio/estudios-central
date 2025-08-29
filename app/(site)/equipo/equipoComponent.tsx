@@ -64,13 +64,13 @@ export default function EquipoComponent({
 
   return (
     <CursorFollowWrapper>
-      <div className="mx-auto px-4 py-24">
+      <div className="mx-auto px-8 py-24">
         {/* Filter Component */}
         <div className="filters mb-4">
           <div className="flex items-center justify-between mb-2">
             <h1 className="text-3xl md:text-5xl tracking-tight pb-4 font-bold">Solicitud de alquiler de equipos</h1>
           </div>
-          <div className="flex flex-wrap gap-1 mb-4 pb-4">
+          <div className="flex flex-wrap gap-2 mb-4 pb-4 opacity-80 ">
 
             {/* category buttons */}
             {categories.map((category) => (
@@ -90,14 +90,14 @@ export default function EquipoComponent({
                 onClick={handleClearFilters}
                 disabled={selectedCategories.length === 0}
               >
-                Ver todos
+                Borrar filtros
               </button>
               : null}
 
           </div>
         </div>
         {/* Products List */}
-        <div className="grid grid-cols-2 md:[grid-template-columns:repeat(auto-fit,minmax(120px,180px))] gap-4 md:gap-8 md:gap-y-16">
+        <div className="grid grid-cols-2 md:[grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] gap-4 md:gap-8 md:gap-y-16">
           {filteredProducts.map((product) => (
             <Equipo key={product._id} product={product} addToCart={addToCart} toggleCart={toggleCart} />
           ))}

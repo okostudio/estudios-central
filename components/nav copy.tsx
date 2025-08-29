@@ -31,7 +31,7 @@ export default function NavCopy({
         setCartOpen(false)
         setMenuOpen(open)
     }
-    const toggeCart = (open: boolean) => {
+    const toggleCart = (open: boolean) => {
         setMenuOpen(false)
         setCartOpen(open)
     }
@@ -99,7 +99,7 @@ export default function NavCopy({
                             {/* CART BUTTON */}
                             <div
                                 className='CART-BUTTON relative flex justify-center items-center size-10'
-                                onClick={() => { toggeCart(!cartOpen) }}
+                                onClick={() => { toggleCart(!cartOpen) }}
                             >
                                 {cart.length > 0
                                     ?
