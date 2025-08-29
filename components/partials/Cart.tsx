@@ -21,7 +21,7 @@ const Cart = ({
 
     const [cartTotal, setCartTotal] = useState(0);
 
-    const { cart, setCart } = useContext(CartContext);
+    const { cart, setCart, name, setName, dateFrom, setDateFrom, dateTo, setDateTo } = useContext(CartContext);
 
     const filteredProducts = cart ? products.filter(product => cart.includes(product._id)) : [];
 
@@ -150,7 +150,10 @@ const Cart = ({
                                 <h3 className='py-4'>Tu selección está vacía</h3>
                                 <p className='mb-16'>Agregá equipos desde el catálogo.</p>
                                 <button className="secondary w-full"
-                                    onClick={() => { toggleCart(false); }}
+                                    onClick={() => {
+                                        toggleCart(false);
+                                        window.location.href = "/equipos";
+                                    }}
                                 >Ver catálogo</button>
                             </div>
 
