@@ -9,7 +9,6 @@ export default async function About() {
 
   return (
     <>
-      <SmoothScroll />
       <Nav products={products} />
       <HomeComponent />
       <Footer />

@@ -56,6 +56,7 @@ export const TransitionLink = ({
                         x: e.clientX,
                         y: e.clientY,
                         text: hoverText,
+                        fontSize: "text-xs",
                         scale: hoverScale ? hoverScale : 1,
                     });
                 }

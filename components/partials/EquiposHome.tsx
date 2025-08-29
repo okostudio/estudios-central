@@ -16,7 +16,7 @@ const EquiposHome = () => {
             <div className={`${cols ? cols : "col-span-2"} ${rows ? rows : "row-span-1"} content-stretch aspect-[3/4] relative`}>
                 <TransitionLink href={"/equipo"} hoverText={"Ver equipos"} classes={'h-full group'}>
                     <div className="h-full transition-colors ease-out duration-300 group-hover:bg-white">
-                        <img src={imgUrl} className='h-full mb-4 object-cover ' />
+                        <img src={imgUrl} className='h-full mb-4 object-cover' />
                     </div>
                     <h5 className='text-xs lg:text-sm mb-8'>
                         Digital Camera Canon EOS 5D Mark II

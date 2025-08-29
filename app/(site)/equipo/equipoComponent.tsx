@@ -6,6 +6,7 @@ import { ProductType } from '@/types/Product';
 import { HoverContext } from '@/components/common/HoverContext';
 import { CartContext } from '@/components/common/CartContext';
 import CursorFollowWrapper from '@/components/common/CursorFollowWrapper';
+import Equipo from '@/components/partials/Equipo';
 
 
 type EquipoComponentProps = {
@@ -16,7 +17,6 @@ export default function EquipoComponent({
   products,
 }: EquipoComponentProps) {
   const pageRef = useRef<HTMLDivElement | null>(null);
-  const { setItemHovered } = useContext(HoverContext);
   const { cart, setCart } = useContext(CartContext)
 
   const addToCart = (productId: string) => {
@@ -64,82 +64,43 @@ export default function EquipoComponent({
 
   return (
     <CursorFollowWrapper>
-      <div className="container mx-auto px-4 py-24">
+      <div className="mx-auto px-4 py-24">
         {/* Filter Component */}
         <div className="filters mb-4">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-2xl font-bold">Alquiler Equipo</h2>
+            <h1 className="text-3xl md:text-5xl tracking-tight pb-4 font-bold">Solicitud de alquiler de equipos</h1>
           </div>
-          <div className="flex flex-wrap gap-1 mb-2">
+          <div className="flex flex-wrap gap-1 mb-4 pb-4">
+
+            {/* category buttons */}
             {categories.map((category) => (
               <button
                 key={category}
-                className={`text-xs px-3 py-1 rounded-full border transition ${selectedCategories.includes(category)
-                  ? 'bg-gray-200 text-gray-800 border-gray-300 hover:bg-gray-300'
-                  : 'text-gray-800 transparent border-grey-300 hover:bg-gray-100'
-                  }`}
+                className={`secondary ${selectedCategories.includes(category) ? 'selected' : null}`}
                 onClick={() => handleCategoryToggle(category)}
               >
                 {category}
               </button>
             ))}
+
+            {/* View all button */}
             {selectedCategories.length > 0 ?
               <button
-                className='text-xs px-3 py-1 rounded-full border bg-gray-700 text-white border-gray-900 hover:bg-black'
+                className='primary'
                 onClick={handleClearFilters}
                 disabled={selectedCategories.length === 0}
               >
-                Limpiar filtros
+                Ver todos
               </button>
               : null}
+
           </div>
         </div>
         {/* Products List */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 3xl:grid-cols-8 gap-4 gap-y-12">
-          {filteredProducts.map((product) => {
-            const isInCart = cart.includes(product._id);
-            return (
-              <div
-                key={product._id}
-                className={`group col ${product._id} cursor-pointer`}
-                onClick={() => { addToCart(product._id) }}
-              >
-                <div className="image relative w-full h-0 pb-[100%] overflow-hidden">
-                  <Image src={product.imageUrl} alt={product.imageAlt || product.title} width={640} height={640} className="group-hover:scale-110 transition duration-200 ease-out" />
-                  <div className="description">
-                    <div className="absolute p-3 pb-5 top-0 leading-none left-0 w-full h-full bg-black/50 flex flex-col items-center justify-between opacity-0 group-hover:opacity-100 transition duration-200 ease-out">
-                      <span className="text-white text-xs mb-4">{product.description}</span>
-                    </div>
-                  </div>
-                </div>
-                {/* description */}
-                <div className="flex align-start mt-3 leading-none text-grey-600">
-                  <div>
-
-                    <button
-                      type='button'
-                      onClick={e => {
-                        e.stopPropagation();
-                        toggleCart(product._id);
-                      }}
-                      className={`
-                                      ${isInCart ? "text-white bg-red-700 border border-red-700" : "text-gray-800 transparent border border-black"}  
-                                      font-bold text-md rounded-full text-sm px-2.5 py-1 text-center mr-2 cursor-pointer
-                                      transition duration-200 ease-out
-                                      group-hover:bg-black group-hover:text-white 
-                                      `}
-                    >
-                      {isInCart ? "–" : "+"}
-                    </button>
-                  </div>
-                  <div>
-                    <h5 className="text-xs font-bold">{product.title}</h5>
-                    <p className="text-xs">${product.price}.00</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-2 md:[grid-template-columns:repeat(auto-fit,minmax(120px,180px))] gap-4 md:gap-8 md:gap-y-16">
+          {filteredProducts.map((product) => (
+            <Equipo key={product._id} product={product} addToCart={addToCart} toggleCart={toggleCart} />
+          ))}
         </div>
       </div>
     </CursorFollowWrapper>

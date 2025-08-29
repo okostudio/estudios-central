@@ -30,7 +30,12 @@ export default function Nav({
 
     const filteredProducts = cart ? products.filter(product => cart.includes(product._id)) : [];
 
-    const toggeMenu = (open: boolean) => {
+    const currencyFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    })
+
+    const toggleMenu = (open: boolean) => {
         setCartOpen(false)
         setMenuOpen(open)
     }
@@ -96,7 +101,7 @@ export default function Nav({
                                 <button
                                     className="md:hidden flex flex-col justify-center items-center size-10"
                                     aria-label="Toggle menu"
-                                    onClick={() => toggeMenu((open) => !open)}
+                                    onClick={() => toggleMenu(!open)}
                                 >
                                     <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
                                     <span className={`block w-4 h-0.5 bg-white mb-1 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
@@ -105,7 +110,7 @@ export default function Nav({
 
                                 {/* RESERVE STUDIOS */}
                                 <div className="hidden lg:block">
-                                    <TransitionLink href={`/`}>
+                                    <TransitionLink href={`/estudios`}>
                                         <button className="secondary">
                                             Reservar Estudios
                                         </button>
@@ -164,10 +169,11 @@ export default function Nav({
                 */
 
                 }
-                <div className='flex flex-col max-h-[100svh]'>
+                <div className='flex flex-col justify-stretch max-h-[100dvh]'>
+                    {/* PRODUCTS HEADER */}
                     <div className="cart-top h-16 flex items-center justify-between p-4 bg-white">
                         <div className="flex items-center justify-between">
-                            <h2 className='mr-4'>Seleccion </h2>
+                            <h2 className='mr-4 py-8'>Seleccion </h2>
                             <span className="size-8 bg-black/50 rounded-full text-center text-white p-1">{cart.length}</span>
                         </div>
                         <span
@@ -177,7 +183,7 @@ export default function Nav({
                         </span>
                     </div>
                     {/* PRODUCTS-LIST */}
-                    <div className="PRODUCTS-LIST p-4 max-h-full pt-0 overflow-y-scroll">
+                    <div className="PRODUCTS-LIST p-4 pt-0 h-full max-h-full overflow-y-scroll">
                         {filteredProducts.map((product) => (
                             <div key={product._id} className={`group col ${product._id} cursor-pointer flex items-center justify-between my-2 border-b-1 pb-2 border-black/20 last:border-0`}>
                                 <div className='flex items-center gap-4'>
@@ -188,7 +194,8 @@ export default function Nav({
                                     <div className="flex align-start mt-3 leading-none text-grey-600">
                                         <div>
                                             <h5 className="text-xs font-bold">{product.title}</h5>
-                                            <p className="text-xs">${product.price}.00</p>
+                                            <p className="text-xs">{currencyFormatter.format(product.price)
+                                            }</p>
                                         </div>
                                     </div>
                                 </div>
@@ -202,11 +209,12 @@ export default function Nav({
                         ))}
                     </div>
 
+                    {/* CART FOOTER */}
                     <div className="cart-footer h-50 w-full bg-white/90 pt-4">
                         <div className="mx-4 py-6 border-t-1 border-black/40">
                             <div className="flex items-center justify-between">
                                 <h3>TOTAL</h3>
-                                <h3>${cartTotal}.00</h3>
+                                <h3>{currencyFormatter.format(cartTotal)}</h3>
                             </div>
                             <p className="italic text-xs mb-6">Sujeto a confirmación</p>
                             <button
@@ -217,9 +225,9 @@ export default function Nav({
                                     const draftMessage = [
                                         "Hola, me gustaría reservar los siguientes productos:",
                                         "",
-                                        ...filteredProducts.map(product => `• ${product.title} - $${product.price}.00`),
+                                        ...filteredProducts.map(product => `• ${product.title} - _$${product.price}.00_`),
                                         "-------",
-                                        `TOTAL: ${cartTotal}.00`,
+                                        `*TOTAL: ${cartTotal}.00`,
                                         "",
                                         "¿Podrían confirmarme la disponibilidad?"
                                     ].join('\n');

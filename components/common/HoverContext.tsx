@@ -8,6 +8,7 @@ type CursorProps = {
     x: number;
     y: number;
     text: string;
+    fontSize: string;
     scale: number;
 };
 
@@ -17,7 +18,7 @@ interface HoverContextInterface {
 }
 
 const defaultState = {
-    itemHovered: { x: 0, y: 0, text: "", scale: 1 },
+    itemHovered: { x: 0, y: 0, text: "", fontSize: "text-xs", scale: 1 },
     setItemHovered: () => { },
 } as HoverContextInterface;
 
@@ -28,7 +29,8 @@ export default function HoverProvider({ children }: HoverContextProps) {
         x: 0,
         y: 0,
         text: "",
-        scale: 1,
+        fontSize: "text-xs",
+        scale: 0.5,
     });
     return (
         <>

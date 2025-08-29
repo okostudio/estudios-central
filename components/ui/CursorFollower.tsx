@@ -26,6 +26,7 @@ export default function CursorFollower() {
   useEffect(() => {
     const setFollower = contextSafe(() => {
       gsap.to(cursorRef.current, {
+        duration: 0.25,
         x: itemHovered.x,
         y: itemHovered.y,
         ease: "power3.easeOut",
@@ -40,11 +41,10 @@ export default function CursorFollower() {
       ref={cursorRef}
       className={`fixed top-0 left-0 flex flex-col justify-center items-center z-200 pointer-events-none ${isMobile ? "hidden" : ""}`}
     >
-
       <div
         className={`absolute flex flex-col justify-center items-center rounded-full transition-all ease-out duration-250 ${itemHovered.scale === 1.5 ? "scale-200" : ""} ${itemHovered.text.length === 0 ? "bg-red-800/75 w-5 h-5" : "bg-black/90 text-white w-18 h-18 p-2"} overflow-hidden`}
       >
-        <div className="absolute text-sm text-center leading-[0.9] font-bold text-cursor mb-[0.1]">
+        <div className={`absolute ${itemHovered.fontSize} text-center leading-[0.9] font-bold text-cursor mb-[0.1]`}>
           {itemHovered.text}
         </div>
       </div>

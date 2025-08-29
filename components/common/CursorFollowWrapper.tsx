@@ -10,7 +10,7 @@ const CursorFollowWrapper = ({ children }: { children: ReactNode }) => {
     return (
         <div ref={pageRef} className="bg-white text-black"
             onPointerMove={(e) => {
-                setItemHovered({ text: "", x: e.clientX, y: e.clientY, scale: 1 });
+                setItemHovered({ text: "", x: e.clientX, fontSize: "text-xs", y: e.clientY, scale: 1 });
             }}
         >
             {children}

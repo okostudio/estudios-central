@@ -16,7 +16,6 @@ import { HoverContext } from "@/components/common/HoverContext";
 import Estudios from "@/components/partials/Estudios";
 import EquiposHome from "@/components/partials/EquiposHome";
 import Map from "@/components/partials/Map";
-import Footer from "@/components/partials/Footer";
 import CursorFollowWrapper from "@/components/common/CursorFollowWrapper";
 
 
@@ -24,9 +23,7 @@ export default function HomeComponent() {
 
 
   gsap.registerPlugin(ScrollTrigger);
-  // ScrollTrigger.normalizeScroll(true);
 
-  const size = useWindowSize();
   // const { setItemHovered } = useContext(HoverContext);
   // const [theme, setTheme] = useState<boolean | null>(null);
   const isMobile = useDeviceDetection();
@@ -34,10 +31,6 @@ export default function HomeComponent() {
   const equiposRef = useRef<HTMLDivElement | null>(null);
   const heroRef = useRef<HTMLDivElement | null>(null);
   const { contextSafe } = useGSAP({ scope: pageRef });
-  const { setItemHovered } = useContext(HoverContext);
-
-
-
 
   const startAnimation = contextSafe(() => {
     const tl = gsap.timeline({
@@ -54,10 +47,6 @@ export default function HomeComponent() {
         // },
       }
     })
-      .set(".social-links svg", {
-        y: "-2em",
-        opacity: 0
-      })
       .set(".intro-text h1", {
         y: "-30vh",
         opacity: 0
@@ -81,27 +70,16 @@ export default function HomeComponent() {
         opacity: 1,
         ease: Sine.easeInOut,
       }, 0.05)
-      .to(".social-links svg", {
-        y: 0,
-        opacity: 1,
-        // stagger: -0.1,
-        ease: Sine.easeInOut,
-      }, 0.1)
-      .to(".top-nav", {
-        y: 0,
-        opacity: 1,
-        ease: Sine.easeInOut,
-      }, 0)
 
-    const tlPageColor = gsap.timeline({
-      scrollTrigger: {
-        trigger: equiposRef.current, // Target the box element,
-        start: "-10%",
-        end: `0%`,
-        scrub: true,
-      }
-    })
-      .to(pageRef.current, { backgroundColor: "#eee", color: "black", ease: Power3.easeInOut })
+    // const tlPageColor = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: equiposRef.current, // Target the box element,
+    //     start: "-10%",
+    //     end: `0%`,
+    //     scrub: true,
+    //   }
+    // })
+    //   .to(pageRef.current, { backgroundColor: "#000", color: "black", ease: Power3.easeInOut })
   });
 
 
@@ -148,7 +126,6 @@ export default function HomeComponent() {
 
           <Map />
 
-          <Footer />
         </CursorFollowWrapper>
       </div>
     </>
