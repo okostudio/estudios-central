@@ -14,7 +14,7 @@ import Hero from "@/components/partials/Hero";
 import SmoothScroll from "@/components/common/SmoothScroll";
 import { HoverContext } from "@/components/common/HoverContext";
 import Estudios from "@/components/partials/Estudios";
-import EquiposHome from "@/components/partials/equiposHome";
+import EquiposHome from "@/components/partials/EquiposHome";
 import Map from "@/components/partials/Map";
 import CursorFollowWrapper from "@/components/common/CursorFollowWrapper";
 import Link from "next/link";

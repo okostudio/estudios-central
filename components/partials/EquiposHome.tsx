@@ -9,8 +9,7 @@ const EquiposHome = () => {
         rows?: string,
         imgUrl?: string
     };
-
-    const Equipo = ({ cols, rows, imgUrl }: EquipoProps) => {
+    const EquipoHome = ({ cols, rows, imgUrl }: EquipoProps) => {
         return (
             <div className={`${cols ? cols : "col-span-2"} ${rows ? rows : "row-span-1"} content-stretch aspect-[3/4] relative`}>
                 <TransitionLink href={"/equipos"} hoverText={"Ver equipos"} classes={'h-full group'}>
@@ -36,11 +35,11 @@ const EquiposHome = () => {
             <div className="w-full px-8 lg:px-8 relative">
 
                 <div className="grid grid-cols-6 lg:grid-cols-12 min-h-full w-full py-t pb-4 gap-12 gap-y-24 md:gap-y-36">
-                    <Equipo cols={"col-span-4 lg:col-span-3"} imgUrl={"/equiposs/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />
-                    <Equipo cols={"col-span-2"} imgUrl={"/equiposs/Light-Control-Frame-Cloth.jpg"} />
-                    <Equipo cols={"col-span-2"} imgUrl={"/equiposs/Light-Flash-Profoto-Softbox-RFI-5--Octa.png.jpg"} />
-                    <Equipo cols={"col-span-4 lg:col-span-3"} imgUrl={"/equiposs/Light-Flash-Profoto-D2-1000W.jpg"} />
-                    <Equipo cols={"col-span-3 lg:col-span-2"} imgUrl={"/equiposs/Digital-Camera-Fuji-GFX-100-S-II.jpg"} />
+                    <EquipoHome cols={"col-span-4 lg:col-span-3"} imgUrl={"/equipos/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />
+                    <EquipoHome cols={"col-span-2"} imgUrl={"/equipos/Light-Control-Frame-Cloth.jpg"} />
+                    <EquipoHome cols={"col-span-2"} imgUrl={"/equipos/Light-Flash-Profoto-Softbox-RFI-5--Octa.png.jpg"} />
+                    <EquipoHome cols={"col-span-4 lg:col-span-3"} imgUrl={"/equipos/Light-Flash-Profoto-D2-1000W.jpg"} />
+                    <EquipoHome cols={"col-span-3 lg:col-span-2"} imgUrl={"/equipos/Digital-Camera-Fuji-GFX-100-S-II.jpg"} />
                 </div>
                 <div className="md:container mx-auto grid grid-cols-6 lg:grid-cols-12 min-h-full pb-12 gap-12 gap-y-24 md:gap-y-36">
                     <div className='col-span-6 xl:col-span-6 relative pr-[15%] md:pr-[25%] content-start'>
@@ -49,8 +48,8 @@ const EquiposHome = () => {
                             <TransitionLink href="/equipos"><button className="secondary min-w-[40vw] md:min-w-auto">Ver todos</button></TransitionLink>
                         </div>
                     </div>
-                    <Equipo cols={"col-span-2"} imgUrl={"/equiposs/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />
-                    <Equipo cols={"col-span-4 lg:col-span-3"} imgUrl={"/equiposs/Light-Control-Frame-Cloth.jpg"} />
+                    <EquipoHome cols={"col-span-2"} imgUrl={"/equipos/Digital-Camera-Canon-EOS-5D-Mark-II.jpg"} />
+                    <EquipoHome cols={"col-span-4 lg:col-span-3"} imgUrl={"/equipos/Light-Control-Frame-Cloth.jpg"} />
                 </div>
 
             </div>
