@@ -1,8 +1,9 @@
 import { ProductType } from '@/types/Product';
 import React, { useContext, useEffect, useState } from 'react'
-import { CartContext } from '../common/CartContext';
+import { CartContext } from '@/components/common/CartContext';
 import { TrashIcon, WhatsappIcon } from '../icons/icons';
 import Image from 'next/image';
+import DatePickerComponent from '@/components/ui/DatePickerComponent';
 
 
 type CartProps = {
@@ -21,7 +22,7 @@ const Cart = ({
 
     const [cartTotal, setCartTotal] = useState(0);
 
-    const { cart, setCart, name, setName, dateFrom, setDateFrom, dateTo, setDateTo } = useContext(CartContext);
+    const { cart, setCart, name, setName, dateFrom, dateTo } = useContext(CartContext);
 
     const filteredProducts = cart ? products.filter(product => cart.includes(product._id)) : [];
 
@@ -69,7 +70,7 @@ const Cart = ({
                         {/* PRODUCTS HEADER */}
                         <div className="cart-top h-16 flex items-center justify-between p-4 bg-white">
                             <div className="flex items-center justify-between">
-                                <h2 className='mr-4 py-8'>Seleccion </h2>
+                                <h2 className='mr-4 py-8'>Selección </h2>
                                 <span className="size-8 border-1 border-black/50 text-center p-1">{cart.length}</span>
                             </div>
                             <span
@@ -77,6 +78,12 @@ const Cart = ({
                                 className="size-8 bg-white text-xl text-center text-black p-1">
                                 x
                             </span>
+                        </div>
+
+                        <div>
+                            <div className="relative p-4">
+                                <DatePickerComponent />
+                            </div>
                         </div>
 
                         {/* PRODUCTS-LIST */}
@@ -123,7 +130,9 @@ const Cart = ({
                                         e.preventDefault();
                                         const phoneNumber = "+59891068840"; // e.g., "1234567890"
                                         const draftMessage = [
-                                            "Hola, me gustaría reservar los siguientes productos:",
+                                            (dateFrom && dateTo) ? "Hola, me gustaría hacer una reserva entre" : "Hola, me gustaría hacer una reserva",
+                                            (dateFrom && dateTo) ? `${dateFrom.toLocaleDateString("es-ES")} y ${dateTo.toLocaleDateString("es-ES")}` : "",
+                                            "de los siguientes productos:",
                                             "",
                                             ...filteredProducts.map(product => `• ${product.title} - _$${product.price}.00_`),
                                             "-------",

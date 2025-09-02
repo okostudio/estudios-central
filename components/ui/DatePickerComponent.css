@@ -62,11 +62,11 @@
 }
 
 .months-shown-2.react-datepicker {
-    max-width: 600px;
+    max-width: 768px;
 }
 
 .months-shown-3.react-datepicker {
-    max-width: 800px;
+    max-width: 1024px;
     margin: 0 auto;
 }
 
@@ -94,6 +94,7 @@
     background-color: #fff;
     padding: 16px 0;
     position: relative;
+    text-transform: capitalize;
 }
 
 .react-datepicker__header--time {
@@ -230,7 +231,7 @@ h2.react-datepicker__current-month {
 
 
 .react-datepicker__month {
-    margin: 0.8rem;
+    margin: 0.8rem 1.1rem;
     text-align: center;
 }
 
@@ -297,8 +298,9 @@ h2.react-datepicker__current-month {
 
 .react-datepicker__day-names {
     white-space: nowrap;
-    margin: 0 0.8em;
+    margin: 0 1.1rem;
     margin-bottom: -8px;
+    font-size: 0.6rem;
 }
 
 .react-datepicker__week {
@@ -316,6 +318,7 @@ h2.react-datepicker__current-month {
     margin: 1px 0;
     text-align: center;
     font-weight: 600;
+    text-transform: uppercase;
     /* margin: 0.166rem; */
 }
 
@@ -398,10 +401,12 @@ h2.react-datepicker__current-month {
     border-radius: 0.266rem;
 }
 
+.react-datepicker__day--range-end,
 .react-datepicker__day--selecting-range-start,
 .react-datepicker__day--selecting-range-start:hover {
     background-color: #000 !important;
     color: #fff !important;
+    border-radius: 0.266rem;
 }
 
 
