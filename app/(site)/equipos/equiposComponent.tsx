@@ -5,6 +5,7 @@ import { ProductType } from '@/types/Product';
 import { CartContext } from '@/components/common/CartContext';
 import CursorFollowWrapper from '@/components/common/CursorFollowWrapper';
 import Equipo from '@/components/partials/Equipo';
+import DatePickerComponent from '@/components/ui/DatePickerComponent';
 
 type EquipoComponentProps = {
   products: ProductType[];
@@ -91,6 +92,9 @@ export default function EquipoComponent({
               </button>
               : null}
 
+          </div>
+          <div className="date-picker">
+            <DatePickerComponent />
           </div>
         </div>
         {/* Products List */}

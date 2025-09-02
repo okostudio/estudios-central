@@ -81,6 +81,7 @@ const Cart = ({
 
                         {/* PRODUCTS-LIST */}
                         <div className="PRODUCTS-LIST p-4 pt-0 h-full max-h-full overflow-y-scroll">
+
                             {filteredProducts.map((product) => (
                                 <div key={product._id} className={`group col ${product._id} cursor-pointer flex items-center justify-between my-2 border-b-1 pb-2 border-black/20 last:border-0`}>
                                     <div className='flex items-center gap-4'>
@@ -172,3 +173,4 @@ const Cart = ({
 }
 
 export default Cart
+
