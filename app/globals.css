@@ -77,7 +77,7 @@ button.secondary.selected {
 }
 
 button.small {
-  @apply px-[9px] py-[4px] border-1;
+  @apply px-[6px] py-[6px] border-1;
 }
 
 button.small.selected {

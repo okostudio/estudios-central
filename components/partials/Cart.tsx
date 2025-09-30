@@ -1,7 +1,7 @@
 import { ProductType } from '@/types/Product';
 import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '@/components/common/CartContext';
-import { TrashIcon, WhatsappIcon } from '../icons/icons';
+import { Minus, Plus, TrashIcon, WhatsappIcon } from '../icons/icons';
 import Image from 'next/image';
 import DatePickerComponent from '@/components/ui/DatePickerComponent';
 
@@ -42,7 +42,6 @@ const Cart = ({
             return currentTotal + product.price;
         }, 0); // The '0' is the initial value for the accumulator
         setCartTotal(total)
-
     }, [cart])
 
 
@@ -104,12 +103,31 @@ const Cart = ({
                                             </div>
                                         </div>
                                     </div>
-                                    <div
-                                        className="text-black/60 hover:text-black"
-                                        onClick={() => { removeFromCart(product._id) }}
-                                    >
-                                        <div className="p-2">
-                                            <TrashIcon size={4} />
+                                    <div className='flex items-center gap-4'>
+                                        {/* QUANTITY */}
+                                        {product.stock
+                                            ?
+                                            <div>
+                                                <button className="text-black/60 hover:text-black small">
+                                                    <Minus size={3} />
+                                                </button>
+                                                <span className="px-3">{product.stock}</span>
+                                                <button className="text-black/60 hover:text-black small">
+                                                    <Plus size={3} />
+                                                </button>
+                                            </div>
+                                            :
+                                            null
+                                        }
+
+                                        {/* TRASH CAN */}
+                                        <div
+                                            className="text-black/60 hover:text-black"
+                                            onClick={() => { removeFromCart(product._id) }}
+                                        >
+                                            <div className="p-2">
+                                                <TrashIcon size={4} />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

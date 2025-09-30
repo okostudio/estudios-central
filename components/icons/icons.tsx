@@ -79,6 +79,30 @@ export const TrashIcon = ({ size }: IconProps) => {
     )
 }
 
+export const Tick = ({ size }: IconProps) => {
+    return (
+        <svg width="100" height="100" viewBox="0 0 100 100" className={`${getSize(size ? size : 6)} fill-current stroke-0`}>
+            <path d="M38.1,91.9L4.6,62.1c-.9-.8-1-2.2-.2-3.1l9.7-10.9c.8-.9,2.2-1,3.1-.2l20.7,18.4c1,.9,2.6.7,3.3-.4L79.8,6.5c.7-1,2-1.3,3-.6l12.3,7.9c1,.7,1.3,2,.6,3l-47.8,73.7c-2.2,3.4-6.8,4-9.8,1.3Z" />
+        </svg>
+    )
+}
+
+export const Plus = ({ size }: IconProps) => {
+    return (
+        <svg width="100" height="100" viewBox="0 0 100 100" className={`${getSize(size ? size : 6)} fill-current stroke-0`}>
+            <path d="M83.2,41.1h-22.8c-.5,0-.8-.4-.8-.8v-22.8c0-1.2-1-2.2-2.2-2.2h-14.6c-1.2,0-2.2,1-2.2,2.2v22.8c0,.5-.4.8-.8.8h-22.8c-1.2,0-2.2,1-2.2,2.2v14.6c0,1.2,1,2.2,2.2,2.2h22.8c.5,0,.8.4.8.8v22.8c0,1.2,1,2.2,2.2,2.2h14.6c1.2,0,2.2-1,2.2-2.2v-22.8c0-.5.4-.8.8-.8h22.8c1.2,0,2.2-1,2.2-2.2v-14.6c0-1.2-1-2.2-2.2-2.2Z" />
+        </svg>
+    )
+}
+
+export const Minus = ({ size }: IconProps) => {
+    return (
+        <svg width="100" height="100" viewBox="0 0 100 100" className={`${getSize(size ? size : 6)} fill-current stroke-0`}>
+            <path d="M83.2,41.1H16.8c-1.2,0-2.2,1-2.2,2.2v14.6c0,1.2,1,2.2,2.2,2.2h66.3c1.2,0,2.2-1,2.2-2.2v-14.6c0-1.2-1-2.2-2.2-2.2Z" />
+        </svg>
+    )
+}
+
 export const FacebookIcon = ({ size }: IconProps) => {
     return (
         <svg

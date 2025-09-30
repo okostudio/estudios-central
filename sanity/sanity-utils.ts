@@ -15,6 +15,7 @@ export async function fetchProducts(): Promise<ProductType[]> {
         title,
         description,
         price,
+        stock,
         category,
         "imageUrl": image.asset->url,
         "imageAlt": image.alt,

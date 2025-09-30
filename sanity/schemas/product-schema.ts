@@ -1,4 +1,3 @@
-
 const product = {
     name: 'product',
     title: 'Products',
@@ -29,6 +28,15 @@ const product = {
             type: 'number',
         },
         {
+            name: 'stock',
+            title: 'Stock Count',
+            type: 'number',
+            options: {
+                min: 0,
+                max: 9999
+            }
+        },
+        {
             name: 'category',
             title: 'Category',
             type: 'string',
@@ -54,19 +62,6 @@ const product = {
             options: {
                 hotspot: true,
             },
-            fields: [
-                {
-                    name: 'alt',
-                    title: 'Alternative Text',
-                    type: 'string',
-                    description: 'Important for SEO and accessibility.',
-                },
-            ]
-        },
-        {
-            name: 'url',
-            title: 'URL',
-            type: 'url',
         },
     ]
 }
